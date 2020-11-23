@@ -9,6 +9,7 @@ year: '2020'
 authors: 'Weihao Kong, Raghav Somani, Sham Kakade, Sewoong Oh'
 arxiv: 'https://arxiv.org/abs/2006.09702'
 bib: 'https://ui.adsabs.harvard.edu/abs/2020arXiv200609702K/exportcitation'
+paperurl: 'https://papers.nips.cc/paper/2020/hash/3214a6d842cc69597f9edf26df552e43-Abstract.html'
 
 ---
 
@@ -19,5 +20,6 @@ A common challenge faced in practical supervised learning, such as medical image
 The paper has been accepted at the [NeurIPS 2020](https://nips.cc/Conferences/2020){:target="_blank"}.
 
 Please find the below resources
-1. [ArXiv](https://arxiv.org/abs/2006.09702){:target="_blank"}.
-2. [Github code](https://github.com/RaghavSomani/RobustMetaLearningMLR){:target="_blank"}.
+1. [Proceedings](https://papers.nips.cc/paper/2020/hash/3214a6d842cc69597f9edf26df552e43-Abstract.html){:target="_blank"}.
+2. [ArXiv](https://arxiv.org/abs/2006.09702){:target="_blank"}.
+3. [Github code](https://github.com/RaghavSomani/RobustMetaLearningMLR){:target="_blank"}.

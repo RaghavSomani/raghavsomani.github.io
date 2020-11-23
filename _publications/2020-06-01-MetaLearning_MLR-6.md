@@ -1,5 +1,5 @@
 ---
-title: "Meta-learning for mixed linear regression"
+title: "Meta-learning for Mixed Linear Regression"
 collection: publications
 permalink: /publications/2020-06-01-MetaLearning_MLR-6
 excerpt: 'The paper has been accepted for a presentation.'

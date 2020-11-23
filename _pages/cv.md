@@ -33,11 +33,12 @@ Advisor: [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="
 * B.Tech. in [Mathematics and Computing](https://www.iitg.ernet.in/maths/acads/btech_struct.php){:target="_blank"}, 2013 - 17<br>
 [Indian Institute of Technology Guwahati](http://www.iitg.ernet.in/){:target="_blank"}
 
-<!-- * M.S. in Jekyll, Github University, 2014
-* Ph.D in Version Control Theory, Github University, 2018 (expected) -->
 
 Work experience
 ------
+* September 2019 - Present: Graduate Research Assistant
+  * Advisor: [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}
+  * Machine Learning Lab
 
 * July 2017 - July 2019: [Research Fellow](https://www.microsoft.com/en-us/research/lab/microsoft-research-india/#!research-fellow-program){:target="_blank"}
   * [Microsoft Research Lab - India](https://www.microsoft.com/en-us/research/lab/microsoft-research-india/){:target="_blank"}

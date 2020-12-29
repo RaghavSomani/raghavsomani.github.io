@@ -9,7 +9,7 @@ year: '2020'
 authors: 'Weihao Kong, Raghav Somani, Zhao Song, Sham Kakade, Sewoong Oh'
 arxiv: 'https://arxiv.org/abs/2002.08936'
 bib: 'https://ui.adsabs.harvard.edu/abs/2020arXiv200208936K'
-paperurl: 'https://proceedings.icml.cc/paper/2020/hash/b16e8712b35e498857df08af3944b127-Abstract.html'
+paperurl: 'http://proceedings.mlr.press/v119/kong20a.html'
 code: 'https://github.com/RaghavSomani/RobustMetaLearningMLR'
 
 ---
@@ -21,6 +21,6 @@ In modern supervised learning, there are a large number of tasks, but many of th
 The paper has been accepted at the [ICML 2020](https://icml.cc/Conferences/2020){:target="_blank"}.
 
 Please find the below resources
-1. [Proceedings](https://proceedings.icml.cc/paper/2020/hash/b16e8712b35e498857df08af3944b127-Abstract.html){:target="_blank"}.
+1. [Proceedings](http://proceedings.mlr.press/v119/kong20a.html){:target="_blank"}.
 2. [ArXiv](https://arxiv.org/abs/2002.08936){:target="_blank"}.
 3. [Github code](https://github.com/RaghavSomani/RobustMetaLearningMLR){:target="_blank"}.

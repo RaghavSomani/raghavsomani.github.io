@@ -16,7 +16,7 @@
 
   <div class="author__content">
     <audio id="name_audio" src="\files\raghav_somani_hi.mp3" preload="auto"></audio>
-    <img src="\images\pronunciation.png" width="16" height="16" align="right" onclick="document.getElementById('name_audio').play()">
+    <img src="\images\pronunciation.png" align="right" onclick="document.getElementById('name_audio').play()" style="width:18px;height:18px;">
     <h3 class="author__name">{{ author.name }}</h3>
     {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
   </div>

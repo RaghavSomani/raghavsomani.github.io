@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Hi! I am <span class="vocalizer" data-source="auto" data-lang="English">Raghav</span>
+<span class="vocalizer" data-source="https://www.nameshouts.com/libs/media/raghav_hi.mp3">Raghav</span>
 
 I am a Ph.D. student in Machine Learning at [Paul G. Allen School of Computer Science and Engineering](https://www.cs.washington.edu/){:target="_blank"} at [University of Washington](https://www.washington.edu/){:target="_blank"} working with [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}.
 

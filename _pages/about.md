@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Hi, my name is Raghav Somani!<audio id="name_audio" src="\files\raghav_somani_hi.mp3" preload="auto"></audio><button class="fas fa-volume-up" onclick="document.getElementById('name_audio').play()"></button>
+Hi, my name is Raghav Somani!<audio id="name_audio" src="\files\raghav_somani_hi.mp3" preload="auto"></audio><i class="fas fa-volume-down" style="font-size:24px" aria-hidden="true" onclick="document.getElementById('name_audio').play()"></i>
 
 I am a Ph.D. student in Machine Learning at [Paul G. Allen School of Computer Science and Engineering](https://www.cs.washington.edu/){:target="_blank"} at [University of Washington](https://www.washington.edu/){:target="_blank"} working with [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}.
 

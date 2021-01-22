@@ -8,8 +8,6 @@ redirect_from:
   - /about.html
 ---
 
-Hi, my name is Raghav Somani!<audio id="name_audio" src="\files\raghav_somani_hi.mp3" preload="auto"></audio><img scr="\images\pronunciation.png" onclick="document.getElementById('name_audio').play()">
-
 I am a Ph.D. student in Machine Learning at [Paul G. Allen School of Computer Science and Engineering](https://www.cs.washington.edu/){:target="_blank"} at [University of Washington](https://www.washington.edu/){:target="_blank"} working with [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}.
 
 I am interested in the aspects of Large-Scale Optimization and Probability theory that arise in fundamental Machine Learning. Related topics that have caught my recent attention are Stochastic gradient flow/descent on non-convex landscapes, and learning and optimization under over-parameterization. I also like learning Topology, Analysis and theoretical Physics.

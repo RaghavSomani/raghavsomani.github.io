@@ -65,7 +65,7 @@ Work experience
 
 Professional services
 ------
-* Reviewer for [NeurIPS '20](https://neurips.cc/Conferences/2020)
+* Reviewer for [NeurIPS '20](https://neurips.cc/Conferences/2020), [ICML '21](https://icml.cc/Conferences/2021)
 
 <!-- Talks
 ======

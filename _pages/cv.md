@@ -13,10 +13,10 @@ The detailed PDF verison of my CV can be found here - [__Curriculum Vitae__](\fi
 
 Research Interests
 ------
-I seek to solve theoretical machine learning problems using ideas from mathematical optimization, probability theory and statistics.
+I seek to understand machine learning problems using ideas from mathematical optimization, probability theory and statistics.
 
 * Research Interests - Machine Learning, Large Scale Optimization, Probability theory
-* Other Learning Interests - Differential Geometry
+* Other Learning Interests - Geometry and Analysis
 
 [Publications](https://raghavsomani.github.io/publications/){:target="_blank"}
 ------
@@ -65,20 +65,23 @@ Work experience
 
 Professional services
 ------
-* Reviewer for [NeurIPS '20](https://neurips.cc/Conferences/2020), [ICML '21](https://icml.cc/Conferences/2021)
+* Reviewer for [NeurIPS '20](https://neurips.cc/Conferences/2020), [ICML '21](https://icml.cc/Conferences/2021).
 
 <!-- Talks
 ======
   <ul>{% for post in site.talks %}
     {% include archive-single-talk-cv.html %}
   {% endfor %}</ul>
+-->
   
 Teaching
-======
-  <ul>{% for post in site.teaching %}
+------
+* Teaching assistant for [CSE 446/546 Spring 2021](https://courses.cs.washington.edu/courses/cse446/21sp/)
+  <!-- <ul>{% for post in site.teaching %}
     {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
+  {% endfor %}</ul> -->
+
+<!--
 Service and leadership
 ======
 * Currently signed in to 43 different slack teams

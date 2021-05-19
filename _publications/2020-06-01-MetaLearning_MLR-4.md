@@ -1,7 +1,7 @@
 ---
 title: "Meta-learning for Mixed Linear Regression"
 collection: publications
-permalink: /publications/2020-06-01-MetaLearning_MLR-6
+permalink: /publications/2020-06-01-MetaLearning_MLR-4
 excerpt: 'The paper has been accepted for a presentation.'
 date: 2020-06-01
 venue: 'International Conference on Machine Learning (ICML)'

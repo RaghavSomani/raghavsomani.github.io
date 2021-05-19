@@ -1,7 +1,7 @@
 ---
 title: "Robust Meta-learning for Mixed Linear Regression with Small Batches"
 collection: publications
-permalink: /publications/2020-09-25-MetaLearning_RMLR-7
+permalink: /publications/2020-09-25-MetaLearning_RMLR-5
 excerpt: 'The paper has been accepted for a poster.'
 date: 2020-09-25
 venue: 'Neural Information Processing Systems (NeurIPS)'

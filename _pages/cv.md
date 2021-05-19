@@ -18,7 +18,7 @@ I seek to understand machine learning problems using ideas from mathematical opt
 * Research Interests - Machine Learning, Large Scale Optimization, Probability theory
 * Other Learning Interests - Geometry and Analysis
 
-[Publications](https://raghavsomani.github.io/publications/){:target="_blank"}
+[Selected Publications](https://raghavsomani.github.io/publications/){:target="_blank"}
 ------
 
   <ul>{% for post in site.publications reversed %}
@@ -56,7 +56,7 @@ Work experience
   * Project: [Economic Policy Uncertainty Index](https://raghavsomani.github.io/projects/2015-07-20-project-1){:target="_blank"} - [Intern report](https://drive.google.com/file/d/0B9-6pftL99HLaGNHSlo1bUcxTU0/view?usp=sharing){:target="_blank"}
 
 
-[Projects](https://raghavsomani.github.io/publications/){:target="_blank"}
+[Research Projects](https://raghavsomani.github.io/projects/){:target="_blank"}
 ------
 
   <ul>{% for post in site.projects reversed %}
@@ -65,7 +65,7 @@ Work experience
 
 Professional services
 ------
-* Reviewer for [NeurIPS '20](https://neurips.cc/Conferences/2020), [ICML '21](https://icml.cc/Conferences/2021).
+* Reviewer for [NeurIPS '20](https://neurips.cc/Conferences/2020){:target="_blank"}, [ICML '21](https://icml.cc/Conferences/2021){:target="_blank"}.
 
 <!-- Talks
 ======
@@ -76,7 +76,7 @@ Professional services
   
 Teaching
 ------
-* Teaching assistant for [CSE 446/546 Spring 2021](https://courses.cs.washington.edu/courses/cse446/21sp/)
+* Teaching assistant for [CSE 446/546 Spring 2021](https://courses.cs.washington.edu/courses/cse446/21sp/){:target="_blank"}.
   <!-- <ul>{% for post in site.teaching %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul> -->

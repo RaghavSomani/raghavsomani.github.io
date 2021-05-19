@@ -77,7 +77,8 @@ Professional services
 Teaching
 ------
 * Teaching assistant for [CSE 446/546 Spring 2021](https://courses.cs.washington.edu/courses/cse446/21sp/){:target="_blank"}.
-  <!-- <ul>{% for post in site.teaching %}
+
+<!-- <ul>{% for post in site.teaching %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul> -->
 

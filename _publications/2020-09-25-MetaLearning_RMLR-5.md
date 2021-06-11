@@ -11,6 +11,7 @@ arxiv: 'https://arxiv.org/abs/2006.09702'
 bib: 'https://ui.adsabs.harvard.edu/abs/2020arXiv200609702K/exportcitation'
 paperurl: 'https://papers.nips.cc/paper/2020/hash/3214a6d842cc69597f9edf26df552e43-Abstract.html'
 code: 'https://github.com/RaghavSomani/RobustMetaLearningMLR'
+video: 'https://www.youtube.com/embed/XG83U68D39Y'
 
 ---
 
@@ -25,3 +26,6 @@ Please find the below resources
 2. [NeurIPS poster](https://raghavsomani.github.io/publications/files/NeurIPS_2020_poster_RMLR.pdf){:target="_blank"}.
 3. [ArXiv](https://arxiv.org/abs/2006.09702){:target="_blank"}.
 4. [Github code](https://github.com/RaghavSomani/RobustMetaLearningMLR){:target="_blank"}.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XG83U68D39Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<figcaption>Presentation at NeurIPS '20</figcaption>

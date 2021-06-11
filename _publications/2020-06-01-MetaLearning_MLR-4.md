@@ -11,6 +11,7 @@ arxiv: 'https://arxiv.org/abs/2002.08936'
 bib: 'https://ui.adsabs.harvard.edu/abs/2020arXiv200208936K'
 paperurl: 'http://proceedings.mlr.press/v119/kong20a.html'
 code: 'https://github.com/RaghavSomani/RobustMetaLearningMLR'
+video: 'https://www.youtube.com/embed/wGVYlIETwyU'
 
 ---
 
@@ -24,3 +25,6 @@ Please find the below resources
 1. [Proceedings](http://proceedings.mlr.press/v119/kong20a.html){:target="_blank"}.
 2. [ArXiv](https://arxiv.org/abs/2002.08936){:target="_blank"}.
 3. [Github code](https://github.com/RaghavSomani/RobustMetaLearningMLR){:target="_blank"}.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wGVYlIETwyU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<figcaption>Presentation at ICML '20</figcaption>

@@ -20,6 +20,8 @@ I seek to understand machine learning problems using ideas from mathematical opt
 
 [Selected Publications](https://raghavsomani.github.io/publications/){:target="_blank"}
 ------
+  
+Complete list at [Google Scholar](https://scholar.google.com/citations?hl=en&user=0M99MEYAAAAJ&view_op=list_works&sortby=pubdate){:target="_blank"}, or [dblp](https://dblp.org/pers/hd/s/Somani:Raghav){:target="_blank"}.
 
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}

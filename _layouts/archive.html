@@ -20,7 +20,7 @@ layout: default
       <h1 class="page__title">{{ page.title }}</h1>
     {% endunless %}
     {% if page.url == '/publications/' %}
-      You can find the list of all publications on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
+      You can find the list of all publications on my <u><a href="{{author.googlescholar}}" target="_blank">Google Scholar</a></u> and <u><a href="{{author.dblp}}" target="_blank">dblp</a></u> profiles.
     {% endif %}
     {{ content }}
     {% if page.url == '/publications/' %}

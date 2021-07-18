@@ -67,7 +67,7 @@ Work experience
 
 Professional services
 ------
-* Reviewer for [NeurIPS '20](https://neurips.cc/Conferences/2020){:target="_blank"}, [ICML '21](https://icml.cc/Conferences/2021){:target="_blank"}.
+* Reviewed for [NeurIPS '19](https://neurips.cc/Conferences/2019){:target="_blank"}, [NeurIPS '20](https://neurips.cc/Conferences/2020){:target="_blank"}, [ICML '20](https://icml.cc/Conferences/2020){:target="_blank"}, [JMLR](https://jmlr.csail.mit.edu/){:target="_blank"}.
 
 <!-- Talks
 ======

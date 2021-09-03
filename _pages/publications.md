@@ -8,7 +8,7 @@ author_profile: true
 {% include base_path %}
 
 {% if author.googlescholar %}
-  You can find the list of all publications on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a></u>.
+  You can find the list of all publications on my <u><a href="{{author.googlescholar}}">Google Scholar</a></u> profile.
 {% endif %}
 
 {% for post in site.publications reversed %}

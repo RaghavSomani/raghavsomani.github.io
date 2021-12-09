@@ -12,7 +12,7 @@ bib: 'https://ui.adsabs.harvard.edu/abs/2021arXiv211109459O/exportcitation'
 
 ---
 
-![Gradient flow on a 24 node graph represented via evolution of adjacency matrices. The objective function is the homomorphism density of a 5-cycle.](https://raghavsomani.github.io/publications/files/GradFlowexample.png){:class="img-responsive"}
+![Gradient flow on a 24 node graph represented via evolution of adjacency matrices. The objective function is the homomorphism density of a 5-cycle.](https://raghavsomani.github.io/publications/files/MetaLearning.png){:class="img-responsive"}
 
 Wasserstein gradient flows on probability measures have found a host of applications in various optimization problems. They typically arise as the continuum limit of exchangeable particle systems evolving by some mean-field interaction involving a gradient-type potential. However, in many problems, such as in multi-layer neural networks, the so-called particles are edge weights on large graphs whose nodes are exchangeable. Such large graphs are known to converge to continuum limits called graphons as their size grow to infinity. We show that the Euclidean gradient flow of a suitable function of the edge-weights converges to a novel continuum limit given by a curve on the space of graphons that can be appropriately described as a gradient flow or, more technically, a curve of maximal slope. Several natural functions on graphons, such as homomorphism functions and the scalar entropy, are covered by our set-up, and the examples have been worked out in detail.
 

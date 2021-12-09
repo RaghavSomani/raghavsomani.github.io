@@ -21,7 +21,7 @@ A common challenge faced in practical supervised learning, such as medical image
 
 The paper has been accepted at the [NeurIPS 2020](https://nips.cc/Conferences/2020){:target="_blank"}.
 
-Please find the below resources
+Please find the below resources:
 1. [Proceedings and paper](https://papers.nips.cc/paper/2020/hash/3214a6d842cc69597f9edf26df552e43-Abstract.html){:target="_blank"}.
 2. [NeurIPS poster](https://raghavsomani.github.io/publications/files/NeurIPS_2020_poster_RMLR.pdf){:target="_blank"}.
 3. [ArXiv](https://arxiv.org/abs/2006.09702){:target="_blank"}.

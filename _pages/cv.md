@@ -32,6 +32,9 @@ Education
 * Ph.D. student at [Paul G. Allen School of Computer Science & Engineering](https://www.cs.washington.edu/){:target="_blank"}, 2019 - Present<br>
 [University of Washington](https://www.washington.edu/){:target="_blank"}<br>
 Advisor: [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}
+* M.S. in [Computer Science and Engineering](https://www.cs.washington.edu/academics/phd/process#masters){:target="_blank"}, 2022<br>
+[Paul G. Allen School of Computer Science and Engineering](https://www.cs.washington.edu/){:target="_blank"}, [University of Washington](https://www.washington.edu/){:target="_blank"}<br>
+Supervisor: [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}
 * B.Tech. in [Mathematics and Computing](https://www.iitg.ernet.in/maths/acads/btech_struct.php){:target="_blank"}, 2013 - 17<br>
 [Indian Institute of Technology Guwahati](http://www.iitg.ernet.in/){:target="_blank"}
 

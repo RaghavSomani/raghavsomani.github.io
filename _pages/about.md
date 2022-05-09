@@ -14,7 +14,7 @@ Currently, I am trying to understand the scaling limit of gradient flows of func
 
 Prior to joining graduate school, I spent two amazingly wonderful years as a [Research Fellow](https://www.microsoft.com/en-us/research/lab/microsoft-research-india/research-fellow-program/?#){:target="_blank"} at [Microsoft Research Lab - India](https://www.microsoft.com/en-us/research/lab/microsoft-research-india/){:target="_blank"} where I was fortunate to work with [Dr. Praneeth Netrapalli](https://praneethnetrapalli.org/){:target="_blank"} and [Dr. Prateek Jain](http://www.prateekjain.org/){:target="_blank"} on provable non-convex optimization algorithms for Machine Learning and understanding several phenomena in deep learning. Prior to the fellowship, I attended [IIT Guwahati](http://www.iitg.ernet.in/){:target="_blank"} where I obtained my B.Tech. in [Mathematics and Computing](https://www.iitg.ernet.in/maths/acads/btech_struct.php){:target="_blank"} in 2017.
 
-In my spare time, I like learning Mathematical Analysis, Geometry and theoretical Physics. Personally and more broadly, I consider myself as a student of Mathematics, seeking its artistic elegance in various scientific subjects.
+In my spare time, I like learning Mathematical Analysis, Geometry, theoretical Physics, Economics and Finance. Personally and more broadly, I consider myself as a student of Mathematics, seeking its artistic elegance in various scientific subjects.
 
 Here is my [__Curriculum Vitae__](\files\Raghav_CV.pdf){: .btn .btn--inverse}.
 

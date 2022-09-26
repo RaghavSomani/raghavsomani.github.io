@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I'm a Ph.D. student at [Paul G. Allen School of Computer Science and Engineering](https://www.cs.washington.edu/){:target="_blank"} at [University of Washington](https://www.washington.edu/){:target="_blank"} advised by [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}. I am interested in machine learning and optimization broadly, particularly in characterizing fundamental quantities and general laws that arise due to scale.
+I'm a Ph.D. student at [Paul G. Allen School of Computer Science and Engineering](https://www.cs.washington.edu/){:target="_blank"} at [University of Washington](https://www.washington.edu/){:target="_blank"} advised by [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}. I am interested in machine learning and optimization broadly, and particularly in characterizing fundamental quantities and general laws that arise due to scale.
 
 Currently, I am trying to understand the scaling limits of the standard Euclidean first-order stochastic optimization algorithms. Specifically, scaling limits of optimization processes over functions of large dense unlabeled weighted graphs (e.g., deep neural networks), which are invariant under vertex relabeling (i.e., permuting neurons within a layer). As a result, these processes converge to a well-defined (deterministic) gradient flow on the space of [Graphons](https://en.wikipedia.org/wiki/Graphon){:target="_blank"}, as the scale of the problem increases. This leads us to discover a generalized notion of the McKean-Vlasov equations on graphons where the phenomenon of propagation of chaos holds. This is an attempt to generalize the Wasserstein calculus to higher-order exchangeable structures.
 
@@ -16,6 +16,4 @@ Prior to joining graduate school, I spent two wonderful years as a [Research Fel
 
 In my spare time, I like learning Mathematical Analysis, Geometry, Theoretical Physics, Modern Finance, and Economics. Personally and more broadly, I consider myself a student of mathematics, seeking its artistic elegance in various scientific subjects.
 
-Here is my [__Curriculum Vitae__](\files\Raghav_CV.pdf){: .btn .btn--inverse}.
-
-Contact me at `<first_name><second_name_initial>[at]cs[dot]washington[dot]edu`.
+Here is my [__Curriculum Vitae__](\files\Raghav_CV.pdf){: .btn .btn--inverse}. Contact me at `<first_name><second_name_initial>[at]cs[dot]washington[dot]edu`.

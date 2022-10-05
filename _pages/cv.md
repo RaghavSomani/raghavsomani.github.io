@@ -13,19 +13,10 @@ The detailed PDF verison of my CV can be found here - [__Curriculum Vitae__](\fi
 
 Research Interests
 ------
-I seek to understand machine learning problems using ideas from mathematical optimization, probability theory and statistics.
+I am interested in machine learning and optimization broadly. Particularly in characterizing fundamental quantities, phenomena, and general laws that arise due to scale.
 
 * Research Interests - Machine Learning, Large Scale Optimization, Probability theory
 * Other Learning Interests - Geometry and Analysis
-
-[Selected Publications](https://raghavsomani.github.io/publications/){:target="_blank"}
-------
-  
-Complete list at [Google Scholar](https://scholar.google.com/citations?hl=en&user=0M99MEYAAAAJ&view_op=list_works&sortby=pubdate){:target="_blank"}, or [dblp](https://dblp.org/pers/hd/s/Somani:Raghav){:target="_blank"}.
-
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
 
 Education
 ------
@@ -59,6 +50,16 @@ Work experience
   * [CAFRAL - RBI](http://www.cafral.org.in/)
   * Supervisor: [Dr. N. R. Prabhala](https://www.rhsmith.umd.edu/directory/nagpurnanand-r-prabhala){:target="_blank"}
   * Project: [Economic Policy Uncertainty Index](https://raghavsomani.github.io/projects/2015-07-20-project-1){:target="_blank"} - [Intern report](https://drive.google.com/file/d/0B9-6pftL99HLaGNHSlo1bUcxTU0/view?usp=sharing){:target="_blank"}
+
+
+[Selected Publications](https://raghavsomani.github.io/publications/){:target="_blank"}
+------
+  
+Complete list at [Google Scholar](https://scholar.google.com/citations?hl=en&user=0M99MEYAAAAJ&view_op=list_works&sortby=pubdate){:target="_blank"}, or [dblp](https://dblp.org/pers/hd/s/Somani:Raghav){:target="_blank"}.
+
+  <ul>{% for post in site.publications reversed %}
+    {% include archive-single-cv.html %}
+  {% endfor %}</ul>
 
 
 [Research Projects](https://raghavsomani.github.io/projects/){:target="_blank"}

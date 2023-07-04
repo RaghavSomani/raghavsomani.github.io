@@ -4,7 +4,7 @@ collection: publications
 permalink: /publications/2021-10-22-GFGraphons-6
 excerpt: 'The paper is published at the Journal of Theoretical Probability.'
 date: 2021-10-22
-venue: 'Optimal Transport and Machine Learning (OTML) workshop, Neural Information Processing Systems (NeurIPS)'
+venue: 'Journal of Theoretical Probability and the Optimal Transport and Machine Learning (OTML) workshop, Neural Information Processing Systems (NeurIPS)'
 year: '2021'
 authors: 'Sewoong Oh, Soumik Pal, Raghav Somani & Raghav Tripathi'
 arxiv: 'https://arxiv.org/abs/2111.09459'

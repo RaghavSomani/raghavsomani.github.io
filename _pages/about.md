@@ -14,6 +14,6 @@ Currently, I am trying to understand the scaling limits of the standard Euclidea
 
 Prior to joining graduate school, I spent two wonderful years as a [Research Fellow](https://www.microsoft.com/en-us/research/lab/microsoft-research-india/research-fellow-program/?#){:target="_blank"} at [Microsoft Research Lab - India](https://www.microsoft.com/en-us/research/lab/microsoft-research-india/){:target="_blank"}. I was fortunate to work with [Dr. Praneeth Netrapalli](https://praneethnetrapalli.org/){:target="_blank"} and [Dr. Prateek Jain](http://www.prateekjain.org/){:target="_blank"} on provable non-convex optimization algorithms for Machine Learning and understanding several phenomena in deep learning. This experience sparked my current research interests and pursuits. Before the fellowship, I attended [IIT Guwahati](http://www.iitg.ac.in/){:target="_blank"} where I obtained my B.Tech. in [Mathematics and Computing](https://www.iitg.ernet.in/maths/acads/btech_struct.php){:target="_blank"} in 2017.
 
-In my spare time, I like learning Mathematical Analysis, Geometry, Theoretical Physics, Modern Finance, Economics and Philosophy. I view myself as a disciple of mathematics, exploring its divine elegance across myriad of scientific realms and beyond.
+In my spare time, I like learning Mathematical Analysis, Geometry, Theoretical Physics, Modern Finance, Economics and Philosophy.
 
 Here is my [__Curriculum Vitae__](\files\Raghav_CV.pdf){: .btn .btn--inverse}. Contact me at `<first_name><second_name_initial>[at]cs[dot]washington[dot]edu`.

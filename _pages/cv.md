@@ -16,13 +16,14 @@ Research Interests
 I am interested in machine learning and optimization broadly. Particularly in characterizing fundamental quantities, phenomena, and general laws that arise due to scale.
 
 * Research Interests - Machine Learning, Large Scale Optimization, Probability theory
-* Other Learning Interests - Geometry and Analysis
+* Other Learning Interests - Geometry and Analysis, Modern Finance
 
 Education
 ------
-* Ph.D. student at [Paul G. Allen School of Computer Science & Engineering](https://www.cs.washington.edu/){:target="_blank"}, 2019 - Present<br>
+* Ph.D. candidate at [Paul G. Allen School of Computer Science & Engineering](https://www.cs.washington.edu/){:target="_blank"}, 2019 - Present<br>
 [University of Washington](https://www.washington.edu/){:target="_blank"}<br>
-Advisor: [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}
+Advisor: [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}<br>
+Ph.D. Thesis: [Scaling Limits of Algorithms on Large Matrices](https://raghavsomani.github.io/projects/files/thesis.pdf){:target="_blank"}
 * M.S. in [Computer Science and Engineering](https://www.cs.washington.edu/academics/phd/process#masters){:target="_blank"}, 2022<br>
 [Paul G. Allen School of Computer Science and Engineering](https://www.cs.washington.edu/){:target="_blank"}, [University of Washington](https://www.washington.edu/){:target="_blank"}<br>
 Supervisor: [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}
@@ -32,7 +33,14 @@ Supervisor: [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:targe
 
 Work experience
 ------
-* September 2019 - Present: Graduate Research Assistant
+* September 2024 - Present: Quantitative Analyst
+  * [The D. E. Shaw Group](https://www.deshaw.com/){:target="_blank"}
+
+* June 2023 - September 2023: Quantitative Analyst Ph.D. Intern
+  * [The D. E. Shaw Group](https://www.deshaw.com/){:target="_blank"}
+  * Group: Systematic Equities
+
+* September 2019 - August 2024: Graduate Research Assistant
   * Advisor: [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}
   * Machine Learning Lab
 
@@ -83,7 +91,7 @@ Professional services
 Teaching
 ------
 * Teaching assistant for [CSE 446/546 Spring 2021](https://courses.cs.washington.edu/courses/cse446/21sp/){:target="_blank"}.
-
+* Teaching assistant for [CSE 446 Spring 2024](https://courses.cs.washington.edu/courses/cse446/24sp/){:target="_blank"}.
 
 <!-- 
 <ul>{% for post in site.teaching %}

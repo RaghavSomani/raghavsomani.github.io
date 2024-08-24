@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I will be joining [The D. E. Shaw Group](https://www.deshaw.com/){:target="_blank"}, NYC as a full-time quantitative analyst this fall.
+I will be joining [The D. E. Shaw Group](https://www.deshaw.com/){:target="_blank"}, NYC as a full-time quantitative analyst from September 2024.
 
 I obtained my Ph.D. from the [Paul G. Allen School of Computer Science and Engineering](https://www.cs.washington.edu/){:target="_blank"} at the [University of Washington](https://www.washington.edu/){:target="_blank"}, where I was fortunate to be advised by [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}. I enjoy exploring and characterizing phenomena, fundamental quantities, and general laws that emerge at scale in science.
 

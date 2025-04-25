@@ -15,4 +15,5 @@ Before starting my graduate school, I spent two years as a [Research Fellow](htt
 
 In my spare time, I enjoy learning general mathematics, modern finance and economics.
 
-Here is my [__Curriculum Vitae__](\files\Raghav_CV.pdf){: .btn .btn--inverse}. I can be reached at `<first_name><second_name><2000-5>[at]gmail[dot]com`.
+<!-- Here is my [__Curriculum Vitae__](\files\Raghav_CV.pdf){: .btn .btn--inverse}. -->
+I can be reached at `<first_name><second_name><2000-5>[at]gmail[dot]com`.

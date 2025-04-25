@@ -9,18 +9,15 @@ redirect_from:
 
 {% include base_path %}
 
-The detailed PDF verison of my CV can be found here - [__Curriculum Vitae__](\files\Raghav_CV.pdf){: .btn .btn--info}
+<!-- The detailed PDF verison of my CV can be found here - [__Curriculum Vitae__](\files\Raghav_CV.pdf){: .btn .btn--info} -->
 
 Research Interests
 ------
-I am interested in machine learning and optimization broadly. Particularly in characterizing fundamental quantities, phenomena, and general laws that arise due to scale.
-
-* Research Interests - Machine Learning, Large Scale Optimization, Probability theory
-* Other Learning Interests - Geometry and Analysis, Modern Finance
+I am interested in machine learning and optimization broadly. Throughout my research journey, I have been particularly interested in characterizing fundamental quantities, phenomena, and general laws that arise due to scale. With a switch to quantitative research, I like to study market behaviors, applying my research leads to craft systematic forecasts, and build risk-aware portfolios. Independently, I am also interested in exploring options/volatility trading in practice.
 
 Education
 ------
-* Ph.D. candidate at [Paul G. Allen School of Computer Science & Engineering](https://www.cs.washington.edu/){:target="_blank"}, 2019 - Present<br>
+* Ph.D. at [Paul G. Allen School of Computer Science & Engineering](https://www.cs.washington.edu/){:target="_blank"}, 2019 - 2024<br>
 [University of Washington](https://www.washington.edu/){:target="_blank"}<br>
 Advisor: [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}<br>
 Ph.D. Thesis: [Scaling Limits of Algorithms on Large Matrices](https://raghavsomani.github.io/projects/files/thesis.pdf){:target="_blank"}

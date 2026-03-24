@@ -32,6 +32,7 @@ Work experience
 ------
 * September 2024 - April 2026: Quantitative Analyst
   * [The D. E. Shaw Group](https://www.deshaw.com/){:target="_blank"}
+  * Group: D. E. Shaw Investment Management (DESIM)
 
 * June 2023 - September 2023: Quantitative Analyst Ph.D. Intern
   * [The D. E. Shaw Group](https://www.deshaw.com/){:target="_blank"}

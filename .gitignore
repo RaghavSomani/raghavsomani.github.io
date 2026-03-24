@@ -1,2 +1,5 @@
 _site/
 
+
+.gemini/
+gha-creds-*.json

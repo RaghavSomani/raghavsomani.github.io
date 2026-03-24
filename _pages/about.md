@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a quantitative researcher at [D. E. Shaw & Co.](https://www.deshaw.com/){:target="_blank"} in New York City, where I work in quantitative finance as a part of the D. E. Shaw Investment Management (DESIM) group.
+I am a quantitative researcher with experience at [D. E. Shaw & Co.](https://www.deshaw.com/){:target="_blank"}, New York City.
 
 Before working in quantitative finance, I obtained my Ph.D. from the [Paul G. Allen School of Computer Science and Engineering](https://www.cs.washington.edu/){:target="_blank"} at the [University of Washington](https://www.washington.edu/){:target="_blank"}, where I was fortunate to be advised by [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}. My research focused on exploring and characterizing phenomena, fundamental quantities, and general laws that emerge at scale in science.
 

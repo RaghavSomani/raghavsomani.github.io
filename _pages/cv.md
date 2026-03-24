@@ -30,7 +30,7 @@ Supervisor: [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:targe
 
 Work experience
 ------
-* September 2024 - Present: Quantitative Analyst
+* September 2024 - April 2026: Quantitative Analyst
   * [The D. E. Shaw Group](https://www.deshaw.com/){:target="_blank"}
 
 * June 2023 - September 2023: Quantitative Analyst Ph.D. Intern

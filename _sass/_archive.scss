@@ -38,8 +38,28 @@
 
   a + a {
     opacity: 0.5;
-    color: #527bbd;
+    color: $link-color;
   }
+}
+
+.archive__item-authors,
+.archive__item-publication,
+.archive__item-links {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.archive__item-links a,
+.publication-note a {
+  color: $link-color;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.archive__item-links a + a:before {
+  content: " · ";
+  color: $text-color;
+  text-decoration: none;
 }
 
 /* remove border*/

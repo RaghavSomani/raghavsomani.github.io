@@ -1,24 +1,24 @@
 {
-  "name": "minimal-mistakes",
-  "version": "3.4.2",
-  "description": "Minimal Mistakes Jekyll theme npm build scripts",
+  "name": "raghavsomani-github-io",
+  "version": "1.0.0",
+  "description": "Build scripts for Raghav Somani's personal website",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mmistakes/minimal-mistakes.git"
+    "url": "https://github.com/RaghavSomani/raghavsomani.github.io.git"
   },
   "keywords": [
     "jekyll",
-    "theme",
-    "minimal"
+    "academic-portfolio",
+    "personal-website"
   ],
-  "author": "Michael Rose",
+  "author": "Raghav Somani",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mmistakes/minimal-mistakes/issues"
+    "url": "https://github.com/RaghavSomani/raghavsomani.github.io/issues"
   },
-  "homepage": "https://mmistakes.github.io/minimal-mistakes/",
+  "homepage": "https://raghavsomani.github.io/",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">=18"
   },
   "devDependencies": {
     "npm-run-all": "^1.7.0",
@@ -28,6 +28,7 @@
   "scripts": {
     "uglify": "uglifyjs assets/js/vendor/jquery/jquery-1.12.4.min.js assets/js/plugins/jquery.fitvids.js assets/js/plugins/jquery.greedy-navigation.js assets/js/plugins/jquery.magnific-popup.js assets/js/plugins/jquery.smooth-scroll.min.js assets/js/plugins/stickyfill.min.js assets/js/_main.js -c -m -o assets/js/main.min.js",
     "watch:js": "onchange \"assets/js/**/*.js\" -e \"assets/js/main.min.js\" -- npm run build:js",
-    "build:js": "npm run uglify"
+    "build:js": "npm run uglify",
+    "check:links": "node scripts/check-internal-links.mjs _site"
   }
 }

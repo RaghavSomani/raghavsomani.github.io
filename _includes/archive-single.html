@@ -13,7 +13,7 @@
 {% endif %}
 
 <div class="{{ include.type | default: "list" }}__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     {% if include.type == "grid" and teaser %}
       <div class="archive__item-teaser">
         <img src=
@@ -41,40 +41,41 @@
     {% if post.collection == 'teaching' %}
       <p> {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
     {% elsif post.collection == 'publications' %}
-      <i>{{ post.authors }}</i><br><div style="line-height:2.0"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ "Published at: " }}</strong><i>{{ post.venue }}</i>, {{ post.year | default: "1900-01-01" }}</div>
+      <p class="archive__item-authors"><em>{{ post.authors }}</em></p>
+      <p class="archive__item-publication"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published in:</strong> <em>{{ post.venue }}</em>, {{ post.year | default: "1900-01-01" }}</p>
     {% elsif post.date %}
      <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ "Posted on: " }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
     {% endif %}
 
     {% if post.excerpt and site.read_more != 'enabled' %}
-    <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
+    <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}</p>
     {% elsif post.excerpt and site.read_more == 'enabled' %}
-    <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
+    <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }} <strong><a href="{{ base_path }}{{ post.url }}" rel="permalink">Read more</a></strong></p>
     {% endif %}
     
     {% if post.citation and post.paperurl %}
-      <p>Recommended citation: {{ post.citation }} <a href="{{ post.paperurl }}" target="_blank"><u>{{ post.paperurl }}</u></a></p>
+      <p>Recommended citation: {{ post.citation }} <a href="{{ post.paperurl }}" target="_blank" rel="noopener noreferrer">{{ post.paperurl }}</a></p>
     {% elsif post.citation %}
       <p>Recommended citation: {{ post.citation }} </p>
     {% endif %}
     
-    <p>
+    {% if post.paperurl or post.arxiv or post.bib or post.code or post.video %}<p class="archive__item-links">
       {% if post.paperurl %}
-        [<a href=" {{ post.paperurl }} " target="_blank"><u>paper</u></a>]
+        <a href="{{ post.paperurl }}" target="_blank" rel="noopener noreferrer">Paper</a>
       {% endif %}
       {% if post.arxiv %}
-        [<a href=" {{ post.arxiv }} " target="_blank"><u>arXiv</u></a>]
+        <a href="{{ post.arxiv }}" target="_blank" rel="noopener noreferrer">arXiv preprint</a>
       {% endif %}
       {% if post.bib %}
-        [<a href=" {{ post.bib }} " target="_blank"><u>bib</u></a>]
+        <a href="{{ post.bib }}" target="_blank" rel="noopener noreferrer">BibTeX</a>
       {% endif %}
       {% if post.code %}
-        [<a href=" {{ post.code }} " target="_blank"><u>code</u></a>]
+        <a href="{{ post.code }}" target="_blank" rel="noopener noreferrer">Code</a>
       {% endif %}
       {% if post.video %}
-        [<a href=" {{ post.video }} " target="_blank"><u>video</u></a>]
+        <a href="{{ post.video }}" target="_blank" rel="noopener noreferrer">Video</a>
       {% endif %}
-    </p>
+    </p>{% endif %}
 
   </article>
 </div>

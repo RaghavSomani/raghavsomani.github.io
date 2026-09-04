@@ -10,7 +10,7 @@ header:
   caption: "Montreal city from Mt. Royal"
 excerpt: "Visited Montreal, Canada with Microsoft Research Labmates to attend and present at [NeurIPS 2018](https://neurips.cc/Conferences/2018)"
 intro: 
-  - excerpt: 'Received a travel grant from Microsoft to present and attend at [NeurIPS 2018](https://neurips.cc/Conferences/2018). This was my very first experience at an academic conference. Scroll and have a look at some pictures from Montreal, Canada!'
+  - excerpt: 'Received a travel grant from Microsoft to attend and present at [NeurIPS 2018](https://neurips.cc/Conferences/2018). This was my very first experience at an academic conference. Scroll and have a look at some pictures from Montreal, Canada!'
 gallery:
   - image_path: Montreal-2018/image_3.jpg
     url: Montreal-2018/image_3.jpg

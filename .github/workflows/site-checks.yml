@@ -1,0 +1,60 @@
+name: Site checks
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Set up Ruby and Bundler
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.1"
+          bundler-cache: true
+
+      - name: Build the site
+        run: bundle exec jekyll build --trace
+
+      - name: Verify required output
+        shell: bash
+        run: |
+          test -f _site/index.html
+          test -f _site/robots.txt
+          test -f _site/sitemap.xml
+
+      - name: Check internal links and assets
+        run: node scripts/check-internal-links.mjs _site
+
+      - name: Validate generated HTML structure
+        run: >-
+          npx --yes html-validate@11.12.0
+          --rule close-order:error
+          --rule element-permitted-content:error
+          --rule element-permitted-parent:error
+          --rule no-dup-id:error
+          "_site/**/*.html"
+
+      - name: Enforce profile-image budgets
+        shell: bash
+        run: |
+          test "$(wc -c < images/profile-350.jpg)" -le 60000
+          test "$(wc -c < images/profile-700.jpg)" -le 150000

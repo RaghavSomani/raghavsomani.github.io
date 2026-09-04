@@ -12,9 +12,8 @@
   {% assign title = post.title %}
 {% endif %}
 
-<div class="{{ include.type | default: "list" }}__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    <li>
+<li class="{{ include.type | default: "list" }}__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     {% if include.type == "grid" and teaser %}
       <div class="archive__item-teaser">
         <img src=
@@ -37,19 +36,19 @@
           - {{ post.venue }}
         {% endif %}
         {% if post.paperurl %}
-          [<a href="{{ post.paperurl }}" target="_blank">paper</a>]
+          [<a href="{{ post.paperurl }}" target="_blank" rel="noopener noreferrer">Paper</a>]
         {% endif %}
         {% if post.arxiv %}
-          [<a href="{{ post.arxiv }}" target="_blank">arXiv</a>]
+          [<a href="{{ post.arxiv }}" target="_blank" rel="noopener noreferrer">arXiv preprint</a>]
         {% endif %}
         {% if post.bib %}
-          [<a href="{{ post.bib }}" target="_blank">bib</a>]
+          [<a href="{{ post.bib }}" target="_blank" rel="noopener noreferrer">BibTeX</a>]
         {% endif %}
         {% if post.code %}
-          [<a href="{{ post.code }}" target="_blank">code</a>]
+          [<a href="{{ post.code }}" target="_blank" rel="noopener noreferrer">Code</a>]
         {% endif %}
         {% if post.video %}
-          [<a href="{{ post.video }}" target="_blank">video</a>]
+          [<a href="{{ post.video }}" target="_blank" rel="noopener noreferrer">Video</a>]
         {% endif %}
       {% endif %}
     </div>
@@ -57,6 +56,5 @@
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
     {% endif %}
     {% if post.venue%}<p class="archive__item-excerpt" itemprop="description">{{ post.citation }}</p> {% endif %}
-    </li>
- </article>
-</div>
+  </article>
+</li>

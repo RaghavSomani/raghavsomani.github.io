@@ -3,13 +3,14 @@ layout: archive
 title: "Curriculum Vitae"
 permalink: /cv/
 author_profile: true
+description: "Curriculum vitae of Raghav Somani: quantitative research, machine learning research, education, publications, projects, and professional service."
 redirect_from:
   - /resume
 ---
 
 {% include base_path %}
 
-<!-- The detailed PDF verison of my CV can be found here - [__Curriculum Vitae__](\files\Raghav_CV.pdf){: .btn .btn--info} -->
+<!-- The detailed PDF version of my CV can be found here - [__Curriculum Vitae__](/files/Raghav_CV.pdf){: .btn .btn--info} -->
 
 Research Interests
 ------
@@ -17,58 +18,58 @@ I am interested in machine learning and optimization broadly. Throughout my rese
 
 Education
 ------
-* Ph.D. at [Paul G. Allen School of Computer Science & Engineering](https://www.cs.washington.edu/){:target="_blank"}, 2019 - 2024<br>
-[University of Washington](https://www.washington.edu/){:target="_blank"}<br>
-Advisor: [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}<br>
-Ph.D. Thesis: [Scaling Limits of Algorithms on Large Matrices](https://raghavsomani.github.io/projects/files/thesis.pdf){:target="_blank"}
-* M.S. in [Computer Science and Engineering](https://www.cs.washington.edu/academics/phd/process#masters){:target="_blank"}, 2022<br>
-[Paul G. Allen School of Computer Science and Engineering](https://www.cs.washington.edu/){:target="_blank"}, [University of Washington](https://www.washington.edu/){:target="_blank"}<br>
-Supervisor: [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}
-* B.Tech. in [Mathematics and Computing](https://www.iitg.ernet.in/maths/acads/btech_struct.php){:target="_blank"}, 2013 - 17<br>
-[Indian Institute of Technology Guwahati](http://www.iitg.ernet.in/){:target="_blank"}
+* Ph.D. at [Paul G. Allen School of Computer Science & Engineering](https://www.cs.washington.edu/){:target="_blank" rel="noopener noreferrer"}, 2019 - 2024<br>
+[University of Washington](https://www.washington.edu/){:target="_blank" rel="noopener noreferrer"}<br>
+Advisor: [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank" rel="noopener noreferrer"}<br>
+Ph.D. Thesis: [Scaling Limits of Algorithms on Large Matrices](https://raghavsomani.github.io/projects/files/thesis.pdf){:target="_blank" rel="noopener noreferrer"}
+* M.S. in [Computer Science and Engineering](https://www.cs.washington.edu/academics/phd/process#masters){:target="_blank" rel="noopener noreferrer"}, 2022<br>
+[Paul G. Allen School of Computer Science and Engineering](https://www.cs.washington.edu/){:target="_blank" rel="noopener noreferrer"}, [University of Washington](https://www.washington.edu/){:target="_blank" rel="noopener noreferrer"}<br>
+Supervisor: [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank" rel="noopener noreferrer"}
+* B.Tech. in [Mathematics and Computing](https://www.iitg.ernet.in/maths/acads/btech_struct.php){:target="_blank" rel="noopener noreferrer"}, 2013 - 17<br>
+[Indian Institute of Technology Guwahati](http://www.iitg.ernet.in/){:target="_blank" rel="noopener noreferrer"}
 
 
 Work experience
 ------
 * September 2024 - April 2026: Quantitative Analyst
-  * [The D. E. Shaw Group](https://www.deshaw.com/){:target="_blank"}
+  * [The D. E. Shaw Group](https://www.deshaw.com/){:target="_blank" rel="noopener noreferrer"}
   * Group: D. E. Shaw Investment Management (DESIM)
 
 * June 2023 - September 2023: Quantitative Analyst Ph.D. Intern
-  * [The D. E. Shaw Group](https://www.deshaw.com/){:target="_blank"}
+  * [The D. E. Shaw Group](https://www.deshaw.com/){:target="_blank" rel="noopener noreferrer"}
   * Group: Systematic Equities
 
 * September 2019 - August 2024: Graduate Research Assistant
-  * Advisor: [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank"}
+  * Advisor: [Prof. Sewoong Oh](https://homes.cs.washington.edu/~sewoong/){:target="_blank" rel="noopener noreferrer"}
   * Machine Learning Lab
 
-* July 2017 - July 2019: [Research Fellow](https://www.microsoft.com/en-us/research/lab/microsoft-research-india/#!research-fellow-program){:target="_blank"}
-  * [Microsoft Research Lab - India](https://www.microsoft.com/en-us/research/lab/microsoft-research-india/){:target="_blank"}
-  * Mentors: [Dr. Praneeth Netrapalli](https://www.microsoft.com/en-us/research/people/praneeth/){:target="_blank"} and [Dr. Prateek Jain](https://www.microsoft.com/en-us/research/people/prajain/){:target="_blank"}
-  * Project group: [Provable Non-convex Optimization for Machine Learning Problems](https://www.microsoft.com/en-us/research/project/provable-non-convex-optimization-for-machine-learning-problems/){:target="_blank"}
+* July 2017 - July 2019: [Research Fellow](https://www.microsoft.com/en-us/research/lab/microsoft-research-india/#!research-fellow-program){:target="_blank" rel="noopener noreferrer"}
+  * [Microsoft Research Lab - India](https://www.microsoft.com/en-us/research/lab/microsoft-research-india/){:target="_blank" rel="noopener noreferrer"}
+  * Mentors: [Dr. Praneeth Netrapalli](https://www.microsoft.com/en-us/research/people/praneeth/){:target="_blank" rel="noopener noreferrer"} and [Dr. Prateek Jain](https://www.microsoft.com/en-us/research/people/prajain/){:target="_blank" rel="noopener noreferrer"}
+  * Project group: [Provable Non-convex Optimization for Machine Learning Problems](https://www.microsoft.com/en-us/research/project/provable-non-convex-optimization-for-machine-learning-problems/){:target="_blank" rel="noopener noreferrer"}
 
 * Summer 2016: Research Intern
-  * [Microsoft Research Lab - India](https://www.microsoft.com/en-us/research/lab/microsoft-research-india/){:target="_blank"}
+  * [Microsoft Research Lab - India](https://www.microsoft.com/en-us/research/lab/microsoft-research-india/){:target="_blank" rel="noopener noreferrer"}
   * Supervisor: Dr. Sreangsu Acharyya
-  * Project: [Clustered Monotone Transforms for Rating Factorization](https://raghavsomani.github.io/projects/2018-08-16-project-2){:target="_blank"}
+  * Project: [Clustered Monotone Transforms for Rating Factorization](/publications/2018-08-16-CMTRF-2)
 
 * Summer 2015: Summer Research Intern
   * [CAFRAL - RBI](http://www.cafral.org.in/)
-  * Supervisor: [Dr. N. R. Prabhala](https://www.rhsmith.umd.edu/directory/nagpurnanand-r-prabhala){:target="_blank"}
-  * Project: [Economic Policy Uncertainty Index](https://raghavsomani.github.io/projects/2015-07-20-project-1){:target="_blank"} - [Intern report](https://drive.google.com/file/d/0B9-6pftL99HLaGNHSlo1bUcxTU0/view?usp=sharing){:target="_blank"}
+  * Supervisor: [Dr. N. R. Prabhala](https://www.rhsmith.umd.edu/directory/nagpurnanand-r-prabhala){:target="_blank" rel="noopener noreferrer"}
+  * Project: Economic Policy Uncertainty Index — [Intern report](https://drive.google.com/file/d/0B9-6pftL99HLaGNHSlo1bUcxTU0/view?usp=sharing){:target="_blank" rel="noopener noreferrer"}
 
 
-[Selected Publications](https://raghavsomani.github.io/publications/){:target="_blank"}
+[Selected Publications](https://raghavsomani.github.io/publications/){:target="_blank" rel="noopener noreferrer"}
 ------
   
-Complete list at [Google Scholar](https://scholar.google.com/citations?hl=en&user=0M99MEYAAAAJ&view_op=list_works&sortby=pubdate){:target="_blank"}, or [dblp](https://dblp.org/pers/hd/s/Somani:Raghav){:target="_blank"}.
+Complete list at [Google Scholar](https://scholar.google.com/citations?hl=en&user=0M99MEYAAAAJ&view_op=list_works&sortby=pubdate){:target="_blank" rel="noopener noreferrer"}, or [DBLP](https://dblp.org/pers/hd/s/Somani:Raghav){:target="_blank" rel="noopener noreferrer"}.
 
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
 
-[Research Projects](https://raghavsomani.github.io/projects/){:target="_blank"}
+[Research Projects](https://raghavsomani.github.io/projects/){:target="_blank" rel="noopener noreferrer"}
 ------
 
   <ul>{% for post in site.projects reversed %}
@@ -77,7 +78,7 @@ Complete list at [Google Scholar](https://scholar.google.com/citations?hl=en&use
 
 Professional services
 ------
-* Reviewed for [NeurIPS '19](https://neurips.cc/Conferences/2019){:target="_blank"}, [NeurIPS '20](https://neurips.cc/Conferences/2020){:target="_blank"}, [ICML '20](https://icml.cc/Conferences/2020){:target="_blank"}, [JMLR](https://jmlr.csail.mit.edu/){:target="_blank"}.
+* Reviewed for [NeurIPS '19](https://neurips.cc/Conferences/2019){:target="_blank" rel="noopener noreferrer"}, [NeurIPS '20](https://neurips.cc/Conferences/2020){:target="_blank" rel="noopener noreferrer"}, [ICML '20](https://icml.cc/Conferences/2020){:target="_blank" rel="noopener noreferrer"}, [JMLR](https://jmlr.csail.mit.edu/){:target="_blank" rel="noopener noreferrer"}.
 
 <!-- Talks
 ======
@@ -88,8 +89,8 @@ Professional services
   
 Teaching
 ------
-* Teaching assistant for [CSE 446/546 Spring 2021](https://courses.cs.washington.edu/courses/cse446/21sp/){:target="_blank"}.
-* Teaching assistant for [CSE 446 Spring 2024](https://courses.cs.washington.edu/courses/cse446/24sp/){:target="_blank"}.
+* Teaching assistant for [CSE 446/546 Spring 2021](https://courses.cs.washington.edu/courses/cse446/21sp/){:target="_blank" rel="noopener noreferrer"}.
+* Teaching assistant for [CSE 446 Spring 2024](https://courses.cs.washington.edu/courses/cse446/24sp/){:target="_blank" rel="noopener noreferrer"}.
 
 <!-- 
 <ul>{% for post in site.teaching %}

@@ -10,7 +10,7 @@ header:
   caption: "Melbourne city center"
 excerpt: "Visited Melbourne, Australia to attend and present at [WSDM 2019](http://www.wsdm-conference.org/2019/)"
 intro: 
-  - excerpt: 'Received a travel grant from Microsoft to present and attend at [WSDM 2019](http://www.wsdm-conference.org/2019/). First experienec at a Data Minining conference. Scroll and have a look at some pictures from Melbourne, Australia!'
+  - excerpt: 'Received a travel grant from Microsoft to attend and present at [WSDM 2019](http://www.wsdm-conference.org/2019/). This was my first experience at a data-mining conference. Scroll and have a look at some pictures from Melbourne, Australia!'
 gallery:
   - image_path: Melbourne-2019/image_2.jpg
     url: Melbourne-2019/image_2.jpg

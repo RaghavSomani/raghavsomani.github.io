@@ -3,6 +3,7 @@ layout: archive
 title: "Sitemap"
 permalink: /sitemap/
 author_profile: true
+description: "A navigable index of Raghav Somani's website, including technical notes, research projects, publications, and other selected pages."
 ---
 
 {% include base_path %}
@@ -11,7 +12,9 @@ A list of all the posts and pages found on the site. For you robots out there is
 
 <h2>Pages</h2>
 {% for post in site.pages %}
-  {% include archive-single.html %}
+  {% unless post.sitemap == false or post.robots contains "noindex" %}
+    {% include archive-single.html %}
+  {% endunless %}
 {% endfor %}
 
 <h2>Posts</h2>
@@ -30,7 +33,7 @@ A list of all the posts and pages found on the site. For you robots out there is
   {% endif %}
 {% endunless %}
 {% for post in collection.docs %}
-  {% unless collection.output == false or collection.label == "posts" %}
+  {% unless collection.output == false or collection.label == "posts" or post.sitemap == false or post.robots contains "noindex" %}
   {% include archive-single.html %}
   {% endunless %}
 {% endfor %}

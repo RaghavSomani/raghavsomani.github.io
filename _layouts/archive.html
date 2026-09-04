@@ -19,12 +19,6 @@ layout: default
     {% unless page.header.overlay_color or page.header.overlay_image %}
       <h1 class="page__title">{{ page.title }}</h1>
     {% endunless %}
-    {% if page.url == '/publications/' %}
-      List of all publications - <u><a href="{{author.googlescholar}}" target="_blank">Google Scholar</a></u>, <u><a href="{{author.dblp}}" target="_blank">dblp</a></u>.
-    {% endif %}
     {{ content }}
-    {% if page.url == '/publications/' %}
-      <footer>* Equal contribution</footer>
-    {% endif %}
   </div>
 </div>

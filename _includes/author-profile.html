@@ -4,26 +4,29 @@
   {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.author %}
 {% endif %}
 
-<div itemscope itemtype="http://schema.org/Person">
+<div itemscope itemtype="https://schema.org/Person">
 
   <div class="author__avatar">
     {% if author.avatar contains "://" %}
-    	<img src="{{ author.avatar }}" alt="{{ author.name }}">
+      <img src="{{ author.avatar }}" alt="Portrait of {{ author.name }}">
     {% else %}
-    	<img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" class="author__avatar" alt="{{ author.name }}">
+      <img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}"{% if author.avatar_2x %} srcset="{{ author.avatar | prepend: "/images/" | prepend: base_path }} 350w, {{ author.avatar_2x | prepend: "/images/" | prepend: base_path }} 700w" sizes="(min-width: 925px) 175px, 56px"{% endif %} width="350" height="490" decoding="async" alt="Portrait of {{ author.name }}">
     {% endif %}
   </div>
 
   <div class="author__content">
-    <audio id="name_audio" src="\files\raghav_somani_hi.mp3" preload="auto"></audio>
-    <img src="\images\pronunciation.png" align="right" onclick="document.getElementById('name_audio').play()" style="width:18px;height:18px;">
-    <h3 class="author__name">{{ author.name }}</h3>
-    {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
+    <audio id="name_audio" src="{{ base_path }}/files/raghav_somani_hi.mp3" preload="none"></audio>
+    <div class="author__identity">
+      <p class="author__name" itemprop="name">{{ author.name }}</p>
+      <button type="button" class="author__pronunciation" aria-label="Play the pronunciation of {{ author.name }}" aria-controls="name_audio" aria-describedby="name-audio-status" title="Hear how to pronounce {{ author.name }}"><img src="{{ base_path }}/images/pronunciation-36.png" width="20" height="17" alt="" aria-hidden="true"></button>
+    </div>
+    <span id="name-audio-status" class="author__audio-status" role="status" aria-live="polite"></span>
+    {% if author.bio %}<p class="author__bio" itemprop="jobTitle">{{ author.bio }}</p>{% endif %}
   </div>
 
   <div class="author__urls-wrapper">
-    <button class="btn btn--inverse">Follow</button>
-    <ul class="author__urls social-icons">
+    <button type="button" class="btn btn--inverse author__urls-toggle" aria-label="Show profile links" aria-expanded="false" aria-controls="author-profile-links">Profiles</button>
+    <ul id="author-profile-links" class="author__urls social-icons">
       {% if author.location %}
         <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author.location }}</li>
       {% endif %}
@@ -43,13 +46,13 @@
         <li><a href="https://twitter.com/{{ author.twitter }}"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
       {% endif %}
       {% if author.facebook %}
-        <li><a href="https://www.facebook.com/{{ author.facebook }}" target="_blank"><i class="fa fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+        <li><a href="https://www.facebook.com/{{ author.facebook }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
       {% endif %}
       {% if author.google_plus %}
         <li><a href="https://plus.google.com/+{{ author.google_plus }}"><i class="fa fa-fw fa-google-plus-square" aria-hidden="true"></i> Google+</a></li>
       {% endif %}
       {% if author.linkedin %}
-        <li><a href="https://www.linkedin.com/in/{{ author.linkedin }}" target="_blank"><i class="fa fa-fw fa-linkedin-square" aria-hidden="true"></i> LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/{{ author.linkedin }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square" aria-hidden="true"></i> LinkedIn</a></li>
       {% endif %}
       {% if author.xing %}
         <li><a href="https://www.xing.com/profile/{{ author.xing }}"><i class="fa fa-fw fa-xing-square" aria-hidden="true"></i> XING</a></li>
@@ -64,7 +67,7 @@
         <li><a href="https://bitbucket.org/{{ author.bitbucket }}"><i class="fa fa-fw fa-bitbucket" aria-hidden="true"></i> Bitbucket</a></li>
       {% endif %}
       {% if author.github %}
-        <li><a href="https://github.com/{{ author.github }}"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+        <li><a href="https://github.com/{{ author.github }}"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
       {% endif %}
       {% if author.stackoverflow %}
         <li><a href="https://www.stackoverflow.com/users/{{ author.stackoverflow }}"><i class="fa fa-fw fa-stack-overflow" aria-hidden="true"></i> Stackoverflow</a></li>
@@ -103,7 +106,7 @@
         <li><a href="https://vine.co/u/{{ author.vine }}"><i class="fa fa-fw fa-vine" aria-hidden="true"></i> Vine</a></li>
       {% endif %}
       {% if author.googlescholar %}
-        <li><a href="{{ author.googlescholar }}" target="_blank"><i class="ai ai-google-scholar-square ai-fw"></i> Google Scholar</a></li>
+        <li><a href="{{ author.googlescholar }}" target="_blank" rel="noopener noreferrer"><i class="ai ai-google-scholar-square ai-fw" aria-hidden="true"></i> Google Scholar</a></li>
       {% endif %}
       {% if author.orcid %}
         <li><a href="{{ author.orcid }}"><i class="ai ai-orcid-square ai-fw"></i> ORCID</a></li>

@@ -11,7 +11,9 @@ $(document).ready(function(){
   $(".sticky").Stickyfill();
 
   var stickySideBar = function(){
-    var show = $(".author__urls-wrapper button").length === 0 ? $(window).width() > 1024 : !$(".author__urls-wrapper button").is(":visible");
+    var $authorToggle = $(".author__urls-toggle");
+    var $authorLinks = $("#author-profile-links");
+    var show = $authorToggle.length === 0 ? $(window).width() > 1024 : !$authorToggle.is(":visible");
     // console.log("has button: " + $(".author__urls-wrapper button").length === 0);
     // console.log("Window Width: " + windowWidth);
     // console.log("show: " + show);
@@ -20,11 +22,15 @@ $(document).ready(function(){
       // fix
       Stickyfill.rebuild();
       Stickyfill.init();
-      $(".author__urls").show();
+      $authorLinks.show().attr("aria-hidden", "false");
     } else {
       // unfix
       Stickyfill.stop();
-      $(".author__urls").hide();
+      $authorLinks.hide().attr("aria-hidden", "true");
+      $authorToggle.removeClass("open").attr({
+        "aria-expanded": "false",
+        "aria-label": "Show profile links"
+      });
     }
   };
 
@@ -36,9 +42,40 @@ $(document).ready(function(){
 
   // Follow menu drop down
 
-  $(".author__urls-wrapper button").on("click", function() {
-    $(".author__urls").fadeToggle("fast", function() {});
-    $(".author__urls-wrapper button").toggleClass("open");
+  $(".author__urls-toggle").on("click", function() {
+    var $button = $(this);
+    var $links = $("#" + $button.attr("aria-controls"));
+    var willOpen = $button.attr("aria-expanded") !== "true";
+    $links.fadeToggle("fast").attr("aria-hidden", String(!willOpen));
+    $button.toggleClass("open", willOpen).attr({
+      "aria-expanded": String(willOpen),
+      "aria-label": willOpen ? "Hide profile links" : "Show profile links"
+    });
+  });
+
+  // Name pronunciation
+
+  $(".author__pronunciation").on("click", function() {
+    var audio = document.getElementById($(this).attr("aria-controls"));
+    var $status = $("#name-audio-status");
+    var showPlaybackError = function() {
+      $status.text("Pronunciation audio could not be played.");
+    };
+
+    $status.text("");
+    if (!audio) {
+      showPlaybackError();
+      return;
+    }
+
+    try {
+      var playback = audio.play();
+      if (playback && typeof playback.catch === "function") {
+        playback.catch(showPlaybackError);
+      }
+    } catch (error) {
+      showPlaybackError();
+    }
   });
 
   // init smooth scroll

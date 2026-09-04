@@ -12,7 +12,7 @@ locale                   : "en-US"
 title                    : "Raghav Somani"
 title_separator          : "-"
 name                     : &name "Raghav Somani"
-description              : &description "5<sup>th</sup> year Ph.D. student \n University of Washington"
+description              : &description "Quant Researcher | PhD in CS"
 url                      : https://raghavsomani.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "RaghavSomani/raghavsomani.github.io"
@@ -63,13 +63,19 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 :  # Open Graph/Twitter default site image
+og_image                 : "profile-700.jpg" # Open Graph/Twitter default site image
+og_image_width           : 700
+og_image_height          : 980
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
+  type                   : Person
+  name                   : "Raghav Somani"
+  links:
+    - "https://github.com/RaghavSomani"
+    - "https://www.linkedin.com/in/raghavsomani"
+    - "https://scholar.google.com/citations?hl=en&user=0M99MEYAAAAJ"
+    - "https://dblp.org/pers/hd/s/Somani:Raghav"
 
 
 # Analytics
@@ -82,7 +88,8 @@ analytics:
 # Site Author
 author:
   name             : "Raghav Somani"
-  avatar           : "profile.jpg"
+  avatar           : "profile-350.jpg"
+  avatar_2x        : "profile-700.jpg"
   bio              : "Quantitative Researcher"
   # location         : "India"
   # employer         : "University of Washington"
@@ -95,7 +102,7 @@ author:
   flickr           :
   facebook         : # "raghavsomani95"
   foursquare       :
-  github           : # "RaghavSomani"
+  github           : "RaghavSomani"
   google_plus      :
   keybase          :
   instagram        :
@@ -113,7 +120,7 @@ author:
   xing             :
   youtube          : 
   wikipedia        :
-  dblp             : 
+  dblp             : "https://dblp.org/pers/hd/s/Somani:Raghav"
 
 
 # Reading Files
@@ -141,6 +148,16 @@ exclude:
   - log
   - node_modules
   - package.json
+  - scripts
+  - markdown_generator
+  - .audit
+  - run.bat
+  - serve-local.bat
+  - texput.log
+  - images/profile.jpg
+  - images/profile_.jpg
+  - images/profile_old.jpg
+  - images/pronunciation.png
   - Rakefile
   - README
   - tmp

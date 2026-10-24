@@ -147,6 +147,7 @@ exclude:
   - log
   - node_modules
   - package.json
+  - package-lock.json
   - scripts
   - markdown_generator
   - .audit

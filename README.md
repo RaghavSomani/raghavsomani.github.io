@@ -6,16 +6,19 @@ Source for [Raghav Somani's personal website](https://raghavsomani.github.io/), 
 
 The site is built with Jekyll and the GitHub Pages dependency set.
 
-1. Install Ruby, Bundler, and Node.js 18 or newer.
+1. Install Ruby, Bundler, and Node.js 22.22+ on the 22.x line, or Node.js 24.8+.
 2. Run `bundle install`.
-3. Run `bundle exec jekyll serve`.
-4. Open `http://localhost:4000`.
+3. Run `npm ci`.
+4. Run `bundle exec jekyll serve`.
+5. Open `http://localhost:4000`.
 
 On this Windows workstation, run `serve-local.bat` to start the WSL-based development server with live reload. Keep its terminal open while reviewing the site and press Ctrl+C when finished.
 
 Run `run.bat` on Windows for a production build, an internal-link check, and a concise Git status. The script deliberately does not stage, commit, or push changes.
 
 If the browser JavaScript sources are changed, rebuild `assets/js/main.min.js` with `npm run build:js` before committing.
+
+After building the site, run `npm run check:html` for the same structural HTML checks used in CI.
 
 ## Content
 

@@ -24,6 +24,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
+          cache: npm
+
+      - name: Install Node.js dependencies
+        run: npm ci --ignore-scripts
 
       - name: Set up Ruby and Bundler
         uses: ruby/setup-ruby@v1
@@ -45,13 +49,7 @@ jobs:
         run: node scripts/check-internal-links.mjs _site
 
       - name: Validate generated HTML structure
-        run: >-
-          npx --yes html-validate@11.12.0
-          --rule close-order:error
-          --rule element-permitted-content:error
-          --rule element-permitted-parent:error
-          --rule no-dup-id:error
-          "_site/**/*.html"
+        run: npm run check:html
 
       - name: Enforce profile-image budgets
         shell: bash

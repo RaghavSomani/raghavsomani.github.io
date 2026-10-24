@@ -1,22 +1,26 @@
-<article id="comment{{ include.index }}" class="js-comment comment">
+{% assign author_url = include.url | default: "" | strip %}
+{% assign author_url_lowercase = author_url | downcase %}
+{% assign author_url_http = author_url_lowercase | slice: 0, 7 %}
+{% assign author_url_https = author_url_lowercase | slice: 0, 8 %}
+<article id="comment{{ include.index | escape }}" class="js-comment comment tex2jax_ignore">
   <div class="comment__avatar-wrapper">
-    <img class="comment__avatar" src="https://www.gravatar.com/avatar/{{ include.email }}?d=mm&s=80">
+    <img class="comment__avatar" src="https://www.gravatar.com/avatar/{{ include.email | url_encode | escape }}?d=mm&amp;s=80" alt="">
   </div>
   <div class="comment__content-wrapper">
     <h3 class="comment__author">
-      {% unless include.url == blank %}
-        <a rel="nofollow" href="{{ include.url }}">{{ include.name }}</a>
+      {% if author_url_http == "http://" or author_url_https == "https://" %}
+        <a rel="nofollow" href="{{ author_url | escape }}">{{ include.name | escape }}</a>
       {% else %}
-        {{ include.name }}
-      {% endunless %}
+        {{ include.name | escape }}
+      {% endif %}
     </h3>
     <p class="comment__date">
       {% if include.date %}
-        {% if include.index %}<a href="#comment{{ include.index }}">{% endif %}
-        <time datetime="{{ include.date | date_to_xmlschema }}">{{ include.date | date: "%B %d, %Y at %I:%M %p" }}</time>
+        {% if include.index %}<a href="#comment{{ include.index | escape }}">{% endif %}
+        <time datetime="{{ include.date | date_to_xmlschema | escape }}">{{ include.date | date: "%B %d, %Y at %I:%M %p" | escape }}</time>
         {% if include.index %}</a>{% endif %}
       {% endif %}
     </p>
-    {{ include.message | markdownify }}
+    <p class="comment__message">{{ include.message | escape | newline_to_br }}</p>
   </div>
 </article>

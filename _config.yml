@@ -24,6 +24,7 @@ comments:
   provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
   disqus:
     shortname            : "raghavsomani"
+    site_url             : "https://raghavsomani.github.io" # Keep production comment threads in local previews.
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:

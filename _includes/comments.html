@@ -5,6 +5,11 @@
   {% case site.comments.provider %}
   {% when "disqus" %}
     <h4 class="page__comments-title">{{ comments_label }}</h4>
+    <p id="disqus_status" class="small" role="status">
+      <span id="disqus_message">Comments are powered by Disqus.</span>
+      <a href="https://disqus.com/home/forum/{{ site.comments.disqus.shortname | url_encode }}/" target="_blank" rel="noopener noreferrer">View discussions on Disqus</a>.
+    </p>
+    <noscript><p>Enable JavaScript to use the comment form.</p></noscript>
     <section id="disqus_thread"></section>
   {% when "facebook" %}
     <h4 class="page__comments-title">{{ comments_label }}</h4>

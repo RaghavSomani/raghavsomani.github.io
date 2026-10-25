@@ -12,7 +12,7 @@ The site is built with Jekyll and the GitHub Pages dependency set.
 4. Run `bundle exec jekyll serve`.
 5. Open `http://localhost:4000`.
 
-On this Windows workstation, run `serve-local.bat` to start the WSL-based development server with live reload. Keep its terminal open while reviewing the site and press Ctrl+C when finished.
+On this Windows workstation, run `serve-local.bat` to start the WSL-based development server with automatic rebuilding. Refresh the browser manually after edits; LiveReload is disabled because malformed client requests can stop the pinned preview server. Keep its terminal open while reviewing the site and press Ctrl+C when finished.
 
 Run `run.bat` on Windows for a production build, an internal-link check, and a concise Git status. The script deliberately does not stage, commit, or push changes.
 

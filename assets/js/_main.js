@@ -81,11 +81,13 @@ $(document).ready(function(){
   // init smooth scroll
   $("a").smoothScroll({offset: -20});
 
-  // add lightbox class to all image links
-  $("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif']").addClass("image-popup");
+  // Keep comment links out of both automatic and explicit lightbox binding.
+  var $imageLinks = $(".image-popup,a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif']")
+    .not(".page__comments a, .js-comment a");
+  $imageLinks.addClass("image-popup");
 
   // Magnific-Popup options
-  $(".image-popup").magnificPopup({
+  $imageLinks.magnificPopup({
     // disableOn: function() {
     //   if( $(window).width() < 500 ) {
     //     return false;
@@ -100,7 +102,7 @@ $(document).ready(function(){
       preload: [0,1] // Will preload 0 - before current, and 1 after the current image
     },
     image: {
-      tError: '<a href="%url%">Image #%curr%</a> could not be loaded.',
+      tError: 'Image #%curr% could not be loaded.',
     },
     removalDelay: 500, // Delay in milliseconds before popup is removed
     // Class that is added to body when popup is open.

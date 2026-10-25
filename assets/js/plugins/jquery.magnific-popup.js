@@ -1136,6 +1136,14 @@ $.magnificPopup.registerModule(AJAX_NS, {
 
 /*>>image*/
 var _imgInterval,
+	_getImageError = function(template, src) {
+		// Keep source URLs as data when the error template is parsed as HTML.
+		return template.replace('%url%', function() {
+			return String(src).replace(/&/g, '&amp;')
+				.replace(/"/g, '&quot;').replace(/'/g, '&#39;')
+				.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+		});
+	},
 	_getTitle = function(item) {
 		if(item.data && item.data.title !== undefined)
 			return item.data.title;
@@ -1311,7 +1319,7 @@ $.magnificPopup.registerModule('image', {
 						item.img.off('.mfploader');
 						if(item === mfp.currItem){
 							mfp._onImageHasSize(item);
-							mfp.updateStatus('error', imgSt.tError.replace('%url%', item.src) );
+							mfp.updateStatus('error', _getImageError(imgSt.tError, item.src) );
 						}
 
 						item.hasSize = true;
@@ -1355,7 +1363,7 @@ $.magnificPopup.registerModule('image', {
 
 				if(item.loadError) {
 					template.addClass('mfp-loading');
-					mfp.updateStatus('error', imgSt.tError.replace('%url%', item.src) );
+					mfp.updateStatus('error', _getImageError(imgSt.tError, item.src) );
 				} else {
 					template.removeClass('mfp-loading');
 					mfp.updateStatus('ready');

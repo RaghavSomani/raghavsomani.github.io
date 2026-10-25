@@ -16,21 +16,24 @@
   {% endcomment %}
   <div class="page__share-links">
     <a href="https://x.com/intent/tweet?text={{ page.title | strip_html | url_encode }}&amp;url={{ share_url }}"
-       class="btn btn--x" aria-label="{{ share_label | escape }} X" title="{{ share_label | escape }} X"
+       class="page__share-link" aria-label="Post on X" title="Post on X"
        target="_blank" rel="noopener noreferrer">
-      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true" focusable="false"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true" focusable="false"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+      <span>Post</span>
     </a>
 
     <a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}"
-       class="btn btn--facebook" aria-label="{{ share_label | escape }} Facebook" title="{{ share_label | escape }} Facebook"
+       class="page__share-link" aria-label="{{ share_label | escape }} Facebook" title="{{ share_label | escape }} Facebook"
        target="_blank" rel="noopener noreferrer">
-      <img class="icon" src="{{ base_path }}/images/social/facebook-logo-white.png" width="2084" height="2084" alt="" aria-hidden="true">
+      <img class="icon" src="{{ base_path }}/images/social/facebook-logo-blue.png" width="2084" height="2084" alt="" aria-hidden="true">
+      <span>Share</span>
     </a>
 
     <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url }}"
-       class="btn btn--linkedin" aria-label="{{ share_label | escape }} LinkedIn" title="{{ share_label | escape }} LinkedIn"
+       class="page__share-link" aria-label="{{ share_label | escape }} LinkedIn" title="{{ share_label | escape }} LinkedIn"
        target="_blank" rel="noopener noreferrer">
-      <img class="icon" src="{{ base_path }}/images/social/linkedin-in-white.png" width="840" height="779" alt="" aria-hidden="true">
+      <img class="icon" src="{{ base_path }}/images/social/linkedin-in-blue.png" width="635" height="540" alt="" aria-hidden="true">
+      <span>Share</span>
     </a>
   </div>
 </section>

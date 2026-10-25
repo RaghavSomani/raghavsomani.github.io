@@ -200,14 +200,28 @@
   padding-top: 1em;
   border-top: 1px solid $border-color;
 
-  .btn {
+  .page__share-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 48px;
-    min-height: 48px;
+    gap: 12px;
+    min-height: 44px;
     margin: 0;
-    padding: 10px;
+    padding: 8px;
+    color: $text-color;
+    font-size: $type-size-6;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    background-color: $background-color;
+    border: 1px solid $light-gray;
+    border-radius: $border-radius;
+
+    &:hover {
+      background-color: $lighter-gray;
+      border-color: $gray;
+      text-decoration: none;
+    }
 
     &:focus-visible {
       outline: 3px solid $link-color;
@@ -217,9 +231,10 @@
     .icon {
       display: block;
       flex: none;
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       margin: 0;
+      color: #000;
     }
 
     img.icon {

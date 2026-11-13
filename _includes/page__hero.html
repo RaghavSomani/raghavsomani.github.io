@@ -25,11 +25,15 @@
 {% endif %}
 
 <div class="page__hero{% if page.header.overlay_color or page.header.overlay_image %}--overlay{% endif %}"
-  style="{% if page.header.overlay_color %}background-color: {{ page.header.overlay_color | default: 'transparent' }};{% endif %} {% if overlay_img_path %}background-image: {% if overlay_filter %}linear-gradient({{ overlay_filter }}, {{ overlay_filter }}), {% endif %}url('{{ overlay_img_path }}');{% endif %}"
+  style="{% if page.header.overlay_color %}background-color: {{ page.header.overlay_color }};{% endif %}"
 >
   {% if page.header.overlay_color or page.header.overlay_image %}
+    {% if overlay_img_path %}
+      {% include responsive-image.html image=page.header.overlay_image alt='' class='page__hero-background' sizes='100vw' loading='eager' fetchpriority='high' %}
+    {% endif %}
+    {% if overlay_filter %}<div class="page__hero-shade" aria-hidden="true" style="background: linear-gradient({{ overlay_filter }}, {{ overlay_filter }});"></div>{% endif %}
     <div class="wrapper">
-      <h1 class="page__title" itemprop="headline">
+      <h1 id="main-content" tabindex="-1" class="page__title" itemprop="headline">
         {% if paginator %}
           {{ site.title }}{% unless paginator.page == 1 %} {{ site.data.ui-text[site.locale].page | default: "Page" }} {{ paginator.page }}{% endunless %}
         {% else %}

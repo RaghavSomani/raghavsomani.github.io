@@ -15,7 +15,7 @@
       var timeout = window.setTimeout(showError, 15000);
 
       window.disqus_config = function () {
-        // Preserve URL-based thread identity for existing comments.
+        /* Preserve URL-based thread identity for existing comments. */
         this.page.url = {{ site.comments.disqus.site_url | default: site.url | append: site.baseurl | append: page.url | jsonify }};
         this.page.title = {{ page.title | strip_html | strip_newlines | jsonify }};
         this.callbacks.onReady = [function () {

@@ -51,6 +51,11 @@ function extractAttributes(html) {
   const attributePattern = /\b(?:href|src|poster)\s*=\s*["']([^"']+)["']/gi;
   const visibleHtml = html.replace(/<!--[\s\S]*?-->/g, "");
   for (const match of visibleHtml.matchAll(attributePattern)) values.push(match[1].trim());
+  for (const match of visibleHtml.matchAll(/\bsrcset\s*=\s*["']([^"']+)["']/gi)) {
+    for (const candidate of match[1].split(",")) {
+      values.push(candidate.trim().split(/\s+/)[0]);
+    }
+  }
   return values;
 }
 

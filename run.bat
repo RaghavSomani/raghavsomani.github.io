@@ -1,5 +1,6 @@
 @echo off
 setlocal
+set "JEKYLL_ENV=production"
 
 bundle exec jekyll build --trace
 if errorlevel 1 (

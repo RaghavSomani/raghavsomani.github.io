@@ -80,9 +80,11 @@ social:
 
 
 # Analytics
-# GA4 is loaded by _includes/head/custom.html.
+# Analytics runs only in production; development previews never emit the tag.
 analytics:
-  provider               : false
+  provider               : "google-analytics-4"
+  google:
+    measurement_id       : "G-8Y51RYV6LM"
 
 
 # Site Author

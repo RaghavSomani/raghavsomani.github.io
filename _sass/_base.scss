@@ -195,12 +195,14 @@ figure {
     transition: $global-transition;
   }
 
-  > a {
+  > a,
+  > picture {
     display: block;
   }
 
   &.half {
     > a,
+    > picture,
     > img {
       @include breakpoint($small) {
         width: calc(50% - 0.5em);
@@ -214,6 +216,7 @@ figure {
 
   &.third {
     > a,
+    > picture,
     > img {
       @include breakpoint($small) {
         width: calc(33.3333% - 0.5em);

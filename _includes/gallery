@@ -8,10 +8,13 @@
 
 {% if gallery.size == 2 %}
   {% assign gallery_layout = 'half' %}
+  {% assign gallery_sizes = '(min-width: 1280px) 620px, (min-width: 600px) calc((100vw - 3rem) / 2), calc(100vw - 2rem)' %}
 {% elsif gallery.size >= 3 %}
   {% assign gallery_layout = 'third' %}
+  {% assign gallery_sizes = '(min-width: 1280px) 410px, (min-width: 600px) calc((100vw - 4rem) / 3), calc(100vw - 2rem)' %}
 {% else %}
   {% assign gallery_layout = '' %}
+  {% assign gallery_sizes = '(min-width: 1280px) 1248px, calc(100vw - 2rem)' %}
 {% endif %}
 
 <figure class="{{ gallery_layout }} {{ include.class }}">
@@ -25,22 +28,12 @@
         {% endif %}
         {% if img.title %}title="{{ img.title }}"{% endif %}
       >
-        <img src=
-          {% if img.image_path contains "://" %}
-            "{{ img.image_path }}"
-          {% else %}
-            "{{ img.image_path | prepend: "/images/" | prepend: base_path }}"
-          {% endif %}
-          alt="{% if img.alt %}{{ img.alt }}{% endif %}">
+        {% assign image_alt = img.alt | default: img.title %}
+        {% include responsive-image.html image=img.image_path alt=image_alt sizes=gallery_sizes %}
       </a>
     {% else %}
-      <img src=
-        {% if img.image_path contains "://" %}
-          "{{ img.image_path }}"
-        {% else %}
-          "{{ img.image_path | prepend: "/images/" | prepend: base_path }}"
-        {% endif %}
-        alt="{% if img.alt %}{{ img.alt }}{% endif %}">
+      {% assign image_alt = img.alt | default: img.title %}
+      {% include responsive-image.html image=img.image_path alt=image_alt sizes=gallery_sizes %}
     {% endif %}
   {% endfor %}
   {% if include.caption %}

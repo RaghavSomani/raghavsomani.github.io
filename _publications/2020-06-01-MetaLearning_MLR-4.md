@@ -1,4 +1,5 @@
 ---
+mathjax: true
 title: "Meta-learning for Mixed Linear Regression"
 collection: publications
 permalink: /publications/2020-06-01-MetaLearning_MLR-4
@@ -32,5 +33,5 @@ Please find the below resources:
 2. [ArXiv](https://arxiv.org/abs/2002.08936){:target="_blank" rel="noopener noreferrer"}.
 3. [GitHub code](https://github.com/RaghavSomani/RobustMetaLearningMLR){:target="_blank" rel="noopener noreferrer"}.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wGVYlIETwyU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe title="Talk: Meta-learning for Mixed Linear Regression" loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/wGVYlIETwyU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <figcaption>Presentation at ICML '20</figcaption>

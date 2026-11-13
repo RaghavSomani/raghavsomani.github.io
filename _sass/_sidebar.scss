@@ -15,14 +15,6 @@
 
   @include breakpoint($large) {
     @include span(2 of 12);
-    opacity: 0.75;
-    -webkit-transition: opacity 0.2s ease-in-out;
-            transition: opacity 0.2s ease-in-out;
-
-    &:hover,
-    &:focus-within {
-      opacity: 1;
-    }
   }
 
 
@@ -148,7 +140,7 @@
   }
 
   &:focus-visible {
-    outline: 3px solid $warning-color;
+    outline: 3px solid $link-color;
     outline-offset: 2px;
   }
 

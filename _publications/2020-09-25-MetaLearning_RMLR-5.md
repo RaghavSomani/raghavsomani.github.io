@@ -1,4 +1,5 @@
 ---
+mathjax: true
 title: "Robust Meta-learning for Mixed Linear Regression with Small Batches"
 collection: publications
 permalink: /publications/2020-09-25-MetaLearning_RMLR-5
@@ -32,5 +33,5 @@ Please find the below resources:
 3. [ArXiv](https://arxiv.org/abs/2006.09702){:target="_blank" rel="noopener noreferrer"}.
 4. [GitHub code](https://github.com/RaghavSomani/RobustMetaLearningMLR){:target="_blank" rel="noopener noreferrer"}.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XG83U68D39Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe title="Talk: Robust Meta-learning for Mixed Linear Regression with Small Batches" loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/XG83U68D39Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <figcaption>Presentation at NeurIPS '20</figcaption>

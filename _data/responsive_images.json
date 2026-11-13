@@ -1,0 +1,311 @@
+{
+  "Melbourne-2019/image_1.jpg": {
+    "width": 2741,
+    "height": 1316,
+    "variants": [
+      {
+        "width": 480,
+        "jpeg": "responsive/Melbourne-2019/image_1-480.jpg",
+        "webp": "responsive/Melbourne-2019/image_1-480.webp"
+      },
+      {
+        "width": 960,
+        "jpeg": "responsive/Melbourne-2019/image_1-960.jpg",
+        "webp": "responsive/Melbourne-2019/image_1-960.webp"
+      },
+      {
+        "width": 1600,
+        "jpeg": "responsive/Melbourne-2019/image_1-1600.jpg",
+        "webp": "responsive/Melbourne-2019/image_1-1600.webp"
+      },
+      {
+        "width": 2400,
+        "jpeg": "responsive/Melbourne-2019/image_1-2400.jpg",
+        "webp": "responsive/Melbourne-2019/image_1-2400.webp"
+      }
+    ]
+  },
+  "Melbourne-2019/image_2.jpg": {
+    "width": 2765,
+    "height": 1306,
+    "variants": [
+      {
+        "width": 480,
+        "jpeg": "responsive/Melbourne-2019/image_2-480.jpg",
+        "webp": "responsive/Melbourne-2019/image_2-480.webp"
+      },
+      {
+        "width": 960,
+        "jpeg": "responsive/Melbourne-2019/image_2-960.jpg",
+        "webp": "responsive/Melbourne-2019/image_2-960.webp"
+      },
+      {
+        "width": 1600,
+        "jpeg": "responsive/Melbourne-2019/image_2-1600.jpg",
+        "webp": "responsive/Melbourne-2019/image_2-1600.webp"
+      }
+    ]
+  },
+  "Melbourne-2019/image_3.jpg": {
+    "width": 2304,
+    "height": 1088,
+    "variants": [
+      {
+        "width": 480,
+        "jpeg": "responsive/Melbourne-2019/image_3-480.jpg",
+        "webp": "responsive/Melbourne-2019/image_3-480.webp"
+      },
+      {
+        "width": 960,
+        "jpeg": "responsive/Melbourne-2019/image_3-960.jpg",
+        "webp": "responsive/Melbourne-2019/image_3-960.webp"
+      },
+      {
+        "width": 1600,
+        "jpeg": "responsive/Melbourne-2019/image_3-1600.jpg",
+        "webp": "responsive/Melbourne-2019/image_3-1600.webp"
+      }
+    ]
+  },
+  "Melbourne-2019/image_4.jpg": {
+    "width": 3226,
+    "height": 1524,
+    "variants": [
+      {
+        "width": 480,
+        "jpeg": "responsive/Melbourne-2019/image_4-480.jpg",
+        "webp": "responsive/Melbourne-2019/image_4-480.webp"
+      },
+      {
+        "width": 960,
+        "jpeg": "responsive/Melbourne-2019/image_4-960.jpg",
+        "webp": "responsive/Melbourne-2019/image_4-960.webp"
+      },
+      {
+        "width": 1600,
+        "jpeg": "responsive/Melbourne-2019/image_4-1600.jpg",
+        "webp": "responsive/Melbourne-2019/image_4-1600.webp"
+      }
+    ]
+  },
+  "Melbourne-2019/image_5.jpg": {
+    "width": 3172,
+    "height": 1608,
+    "variants": [
+      {
+        "width": 480,
+        "jpeg": "responsive/Melbourne-2019/image_5-480.jpg",
+        "webp": "responsive/Melbourne-2019/image_5-480.webp"
+      },
+      {
+        "width": 960,
+        "jpeg": "responsive/Melbourne-2019/image_5-960.jpg",
+        "webp": "responsive/Melbourne-2019/image_5-960.webp"
+      },
+      {
+        "width": 1600,
+        "jpeg": "responsive/Melbourne-2019/image_5-1600.jpg",
+        "webp": "responsive/Melbourne-2019/image_5-1600.webp"
+      }
+    ]
+  },
+  "Montreal-2018/image_1.jpg": {
+    "width": 2765,
+    "height": 1306,
+    "variants": [
+      {
+        "width": 480,
+        "jpeg": "responsive/Montreal-2018/image_1-480.jpg",
+        "webp": "responsive/Montreal-2018/image_1-480.webp"
+      },
+      {
+        "width": 960,
+        "jpeg": "responsive/Montreal-2018/image_1-960.jpg",
+        "webp": "responsive/Montreal-2018/image_1-960.webp"
+      },
+      {
+        "width": 1600,
+        "jpeg": "responsive/Montreal-2018/image_1-1600.jpg",
+        "webp": "responsive/Montreal-2018/image_1-1600.webp"
+      }
+    ]
+  },
+  "Montreal-2018/image_2.jpg": {
+    "width": 2304,
+    "height": 1088,
+    "variants": [
+      {
+        "width": 480,
+        "jpeg": "responsive/Montreal-2018/image_2-480.jpg",
+        "webp": "responsive/Montreal-2018/image_2-480.webp"
+      },
+      {
+        "width": 960,
+        "jpeg": "responsive/Montreal-2018/image_2-960.jpg",
+        "webp": "responsive/Montreal-2018/image_2-960.webp"
+      },
+      {
+        "width": 1600,
+        "jpeg": "responsive/Montreal-2018/image_2-1600.jpg",
+        "webp": "responsive/Montreal-2018/image_2-1600.webp"
+      },
+      {
+        "width": 2304,
+        "jpeg": "responsive/Montreal-2018/image_2-2304.jpg",
+        "webp": "responsive/Montreal-2018/image_2-2304.webp"
+      }
+    ]
+  },
+  "Montreal-2018/image_3.jpg": {
+    "width": 1383,
+    "height": 894,
+    "variants": [
+      {
+        "width": 480,
+        "jpeg": "responsive/Montreal-2018/image_3-480.jpg",
+        "webp": "responsive/Montreal-2018/image_3-480.webp"
+      },
+      {
+        "width": 960,
+        "jpeg": "responsive/Montreal-2018/image_3-960.jpg",
+        "webp": "responsive/Montreal-2018/image_3-960.webp"
+      },
+      {
+        "width": 1383,
+        "jpeg": "responsive/Montreal-2018/image_3-1383.jpg",
+        "webp": "responsive/Montreal-2018/image_3-1383.webp"
+      }
+    ]
+  },
+  "Montreal-2018/image_4.jpg": {
+    "width": 2064,
+    "height": 1188,
+    "variants": [
+      {
+        "width": 480,
+        "jpeg": "responsive/Montreal-2018/image_4-480.jpg",
+        "webp": "responsive/Montreal-2018/image_4-480.webp"
+      },
+      {
+        "width": 960,
+        "jpeg": "responsive/Montreal-2018/image_4-960.jpg",
+        "webp": "responsive/Montreal-2018/image_4-960.webp"
+      },
+      {
+        "width": 1600,
+        "jpeg": "responsive/Montreal-2018/image_4-1600.jpg",
+        "webp": "responsive/Montreal-2018/image_4-1600.webp"
+      }
+    ]
+  },
+  "Montreal-2018/image_5.jpg": {
+    "width": 2176,
+    "height": 1420,
+    "variants": [
+      {
+        "width": 480,
+        "jpeg": "responsive/Montreal-2018/image_5-480.jpg",
+        "webp": "responsive/Montreal-2018/image_5-480.webp"
+      },
+      {
+        "width": 960,
+        "jpeg": "responsive/Montreal-2018/image_5-960.jpg",
+        "webp": "responsive/Montreal-2018/image_5-960.webp"
+      },
+      {
+        "width": 1600,
+        "jpeg": "responsive/Montreal-2018/image_5-1600.jpg",
+        "webp": "responsive/Montreal-2018/image_5-1600.webp"
+      }
+    ]
+  },
+  "Vancouver-2019/image_1.jpg": {
+    "width": 2304,
+    "height": 1088,
+    "variants": [
+      {
+        "width": 480,
+        "jpeg": "responsive/Vancouver-2019/image_1-480.jpg",
+        "webp": "responsive/Vancouver-2019/image_1-480.webp"
+      },
+      {
+        "width": 960,
+        "jpeg": "responsive/Vancouver-2019/image_1-960.jpg",
+        "webp": "responsive/Vancouver-2019/image_1-960.webp"
+      },
+      {
+        "width": 1600,
+        "jpeg": "responsive/Vancouver-2019/image_1-1600.jpg",
+        "webp": "responsive/Vancouver-2019/image_1-1600.webp"
+      }
+    ]
+  },
+  "Vancouver-2019/image_2.jpg": {
+    "width": 3536,
+    "height": 1741,
+    "variants": [
+      {
+        "width": 480,
+        "jpeg": "responsive/Vancouver-2019/image_2-480.jpg",
+        "webp": "responsive/Vancouver-2019/image_2-480.webp"
+      },
+      {
+        "width": 960,
+        "jpeg": "responsive/Vancouver-2019/image_2-960.jpg",
+        "webp": "responsive/Vancouver-2019/image_2-960.webp"
+      },
+      {
+        "width": 1600,
+        "jpeg": "responsive/Vancouver-2019/image_2-1600.jpg",
+        "webp": "responsive/Vancouver-2019/image_2-1600.webp"
+      },
+      {
+        "width": 2400,
+        "jpeg": "responsive/Vancouver-2019/image_2-2400.jpg",
+        "webp": "responsive/Vancouver-2019/image_2-2400.webp"
+      }
+    ]
+  },
+  "Vancouver-2019/image_3.jpg": {
+    "width": 2254,
+    "height": 1064,
+    "variants": [
+      {
+        "width": 480,
+        "jpeg": "responsive/Vancouver-2019/image_3-480.jpg",
+        "webp": "responsive/Vancouver-2019/image_3-480.webp"
+      },
+      {
+        "width": 960,
+        "jpeg": "responsive/Vancouver-2019/image_3-960.jpg",
+        "webp": "responsive/Vancouver-2019/image_3-960.webp"
+      },
+      {
+        "width": 1600,
+        "jpeg": "responsive/Vancouver-2019/image_3-1600.jpg",
+        "webp": "responsive/Vancouver-2019/image_3-1600.webp"
+      }
+    ]
+  },
+  "Vancouver-2019/image_4.jpg": {
+    "width": 1729,
+    "height": 2009,
+    "variants": [
+      {
+        "width": 480,
+        "jpeg": "responsive/Vancouver-2019/image_4-480.jpg",
+        "webp": "responsive/Vancouver-2019/image_4-480.webp"
+      },
+      {
+        "width": 960,
+        "jpeg": "responsive/Vancouver-2019/image_4-960.jpg",
+        "webp": "responsive/Vancouver-2019/image_4-960.webp"
+      },
+      {
+        "width": 1600,
+        "jpeg": "responsive/Vancouver-2019/image_4-1600.jpg",
+        "webp": "responsive/Vancouver-2019/image_4-1600.webp"
+      }
+    ]
+  }
+}

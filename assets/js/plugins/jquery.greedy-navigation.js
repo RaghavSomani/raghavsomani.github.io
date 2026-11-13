@@ -9,6 +9,7 @@ var $nav = $('#site-nav');
 var $btn = $('#site-nav button');
 var $vlinks = $('#site-nav .visible-links');
 var $hlinks = $('#site-nav .hidden-links');
+var measuredNavWidth;
 
 function closeNavMenu() {
   $hlinks.addClass('hidden').attr('aria-hidden', 'true');
@@ -19,6 +20,9 @@ function closeNavMenu() {
 }
 
 function updateNav() {
+  var wasOpen = $btn.attr('aria-expanded') === 'true';
+  var focusedElement = document.activeElement;
+  measuredNavWidth = $nav.width();
   // Start from the complete navigation on every measurement. This prevents a
   // narrow first render from leaving links hidden after the viewport expands.
   while ($hlinks.children().length) {
@@ -41,17 +45,29 @@ function updateNav() {
 
   var hiddenCount = $hlinks.children().length;
   $btn.attr('count', hiddenCount).toggleClass('hidden', hiddenCount === 0);
+
+  if (wasOpen && hiddenCount) {
+    $hlinks.removeClass('hidden').attr('aria-hidden', 'false');
+    $btn.addClass('close').attr({
+      'aria-expanded': 'true',
+      'aria-label': 'Close navigation menu'
+    });
+  }
+  if (focusedElement && $nav[0] && $nav[0].contains(focusedElement)) {
+    if ($(focusedElement).is(':visible')) focusedElement.focus();
+    else if (hiddenCount) $btn.trigger('focus');
+  }
 }
 
 // Window listeners
 
 $(window).resize(function() {
-  updateNav();
+  if ($nav.width() !== measuredNavWidth) updateNav();
 });
 
 if (window.ResizeObserver && $nav.length) {
-  var navResizeObserver = new ResizeObserver(function() {
-    updateNav();
+  var navResizeObserver = new ResizeObserver(function(entries) {
+    if (entries[0].contentRect.width !== measuredNavWidth) updateNav();
   });
   navResizeObserver.observe($nav[0]);
 }

@@ -57,11 +57,12 @@ $body-color                 : #fdfdfd;
 $background-color           : #fdfdfd;
 $code-background-color      : #fafafa;
 $code-background-color-dark : $light-gray;
-$text-color                 : $dark-gray;
+$text-color                 : #20252a;
 $border-color               : $lighter-gray;
 $footer-text-color          : #5f686f;
+$muted-text-color           : #59636b;
 
-$primary-color              : #7a8288;
+$primary-color              : #59636b;
 $success-color              : #62c462;
 $warning-color              : #f89406;
 $danger-color               : #ee5f5b;
@@ -92,10 +93,10 @@ $xing-color                 : #006567;
 
 
 /* links */
-$link-color                 : $info-color;
-$link-color-hover           : mix(#000, $link-color, 25%);
+$link-color                 : #1673b1; // >= 3:1 against body text and >= 4.5:1 against the page.
+$link-color-hover           : $link-color;
 $link-color-visited         : $link-color;
-$masthead-link-color        : $primary-color;
+$masthead-link-color        : #59636b;
 $masthead-link-color-hover  : mix(#000, $primary-color, 25%);
 
 

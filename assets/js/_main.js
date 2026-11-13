@@ -10,27 +10,24 @@ $(document).ready(function(){
   // init sticky sidebar
   $(".sticky").Stickyfill();
 
+  var profileIsDesktop;
   var stickySideBar = function(){
     var $authorToggle = $(".author__urls-toggle");
     var $authorLinks = $("#author-profile-links");
     var show = $authorToggle.length === 0 ? $(window).width() > 1024 : !$authorToggle.is(":visible");
-    // console.log("has button: " + $(".author__urls-wrapper button").length === 0);
-    // console.log("Window Width: " + windowWidth);
-    // console.log("show: " + show);
-    //old code was if($(window).width() > 1024)
+    // A mobile toolbar resize must not reset the visitor's open menu.
+    if (show === profileIsDesktop) return;
+    profileIsDesktop = show;
     if (show) {
       // fix
       Stickyfill.rebuild();
       Stickyfill.init();
-      $authorLinks.show().attr("aria-hidden", "false");
+      $authorLinks.stop(true, true).show().attr("aria-hidden", "false");
     } else {
       // unfix
       Stickyfill.stop();
-      $authorLinks.hide().attr("aria-hidden", "true");
-      $authorToggle.removeClass("open").attr({
-        "aria-expanded": "false",
-        "aria-label": "Show profile links"
-      });
+      $authorLinks.stop(true, true).hide().attr("aria-hidden", "true");
+      $authorToggle.removeClass("open").attr("aria-expanded", "false");
     }
   };
 
@@ -46,11 +43,8 @@ $(document).ready(function(){
     var $button = $(this);
     var $links = $("#" + $button.attr("aria-controls"));
     var willOpen = $button.attr("aria-expanded") !== "true";
-    $links.fadeToggle("fast").attr("aria-hidden", String(!willOpen));
-    $button.toggleClass("open", willOpen).attr({
-      "aria-expanded": String(willOpen),
-      "aria-label": willOpen ? "Hide profile links" : "Show profile links"
-    });
+    $links.stop(true, true).fadeToggle("fast").attr("aria-hidden", String(!willOpen));
+    $button.toggleClass("open", willOpen).attr("aria-expanded", String(willOpen));
   });
 
   // Name pronunciation
@@ -79,7 +73,8 @@ $(document).ready(function(){
   });
 
   // init smooth scroll
-  $("a").smoothScroll({offset: -20});
+  // Native anchor focus is essential for the skip link.
+  $("a").not(".skip-link").smoothScroll({offset: -20});
 
   // Keep comment links out of both automatic and explicit lightbox binding.
   var $imageLinks = $(".image-popup,a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif']")

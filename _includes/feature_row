@@ -20,13 +20,13 @@
       <div class="archive__item">
         {% if f.image_path %}
           <div class="archive__item-teaser">
-            <img src=
-              {% if f.image_path contains "://" %}
-                "{{ f.image_path }}"
-              {% else %}
-                "{{ f.image_path | prepend: "/images/" | prepend: base_path }}"
-              {% endif %}
-            alt="{% if f.alt %}{{ f.alt }}{% endif %}">
+            {% assign feature_alt = f.alt | default: f.title %}
+            {% if include.type == 'center' or include.type == 'left' or include.type == 'right' %}
+              {% assign feature_sizes = '(min-width: 1280px) 510px, (min-width: 600px) 40vw, calc(100vw - 2rem)' %}
+            {% else %}
+              {% assign feature_sizes = '(min-width: 1280px) 410px, (min-width: 600px) 33vw, calc(100vw - 2rem)' %}
+            {% endif %}
+            {% include responsive-image.html image=f.image_path alt=feature_alt sizes=feature_sizes %}
           </div>
         {% endif %}
 

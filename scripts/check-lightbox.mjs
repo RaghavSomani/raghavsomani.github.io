@@ -9,6 +9,7 @@ import { createServer } from "node:http";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { chromium } from "playwright";
 
 const root = path.resolve(process.argv[2] ?? fileURLToPath(new URL("../", import.meta.url)));
 const sourceFiles = [
@@ -189,7 +190,7 @@ try {
   for (const variant of Object.keys(variants)) {
     const profile = await mkdtemp(path.join(tmpdir(), "lightbox-browser-"));
     try {
-      const browser = spawn(process.env.CHROME_BIN ?? "chromium", [
+      const browser = spawn(process.env.CHROME_BIN ?? chromium.executablePath(), [
         "--headless", "--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage",
         "--disable-background-networking", "--no-proxy-server", "--dump-dom",
         "--virtual-time-budget=15000", `--user-data-dir=${profile}`,

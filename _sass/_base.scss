@@ -9,10 +9,25 @@ body {
   font-family: $global-font-family;
   line-height: 1.3;
 
+  @media screen {
+    display: flex;
+    flex-direction: column;
+    min-block-size: 100dvh;
+  }
+
   &.overflow--hidden {
     /* when primary navigation is visible, the content in the background won't scroll */
     overflow: hidden;
   }
+}
+
+.masthead {
+  flex-shrink: 0;
+}
+
+.site__content {
+  flex: 1 0 auto;
+  min-inline-size: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {

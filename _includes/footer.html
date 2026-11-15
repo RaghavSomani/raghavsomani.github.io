@@ -1,7 +1,8 @@
 {% include base_path %}
 
-<div class="page__footer-follow">
+<nav class="page__footer-follow" aria-label="Footer">
   <ul class="social-icons">
+    <li>{% include footer/custom.html %}</li>
     {% if site.data.ui-text[site.locale].follow_label %}
     <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
     {% endif %}
@@ -29,6 +30,6 @@
           class="fa fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default:
         "Feed" }}</a></li>
   </ul>
-</div>
+</nav>
 
 <div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. Built with <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> and <a href="https://github.com/academicpages/academicpages.github.io" rel="nofollow">AcademicPages</a>.</div>

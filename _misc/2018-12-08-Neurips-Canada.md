@@ -24,7 +24,7 @@ gallery:
 feature_row:
   - image_path: Montreal-2018/image_4.jpg
     title: "At the poster presentation session, NeurIPS 2018."
-    excerpt: "Picture credit - [Don K. Dennis](https://dkdennis.xyz)"
+    excerpt: "Picture credit - [Don K. Dennis](https://metastableb.github.io/)"
 ---
 
 {% include feature_row id="intro" type="center" %}

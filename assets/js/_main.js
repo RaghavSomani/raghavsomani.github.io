@@ -1,116 +1,127 @@
-/* ==========================================================================
-   jQuery plugin settings and other scripts
-   ========================================================================== */
+(() => {
+  const scriptUrl = document.currentScript.src;
+  const navigation = document.getElementById("site-nav");
+  const navToggle = navigation?.querySelector(".greedy-nav__toggle");
+  const visibleLinks = navigation?.querySelector(".visible-links");
+  const hiddenLinks = navigation?.querySelector(".hidden-links");
+  let measuredNavWidth;
+  let navFrame = null;
 
-$(document).ready(function(){
+  function setNavigationOpen(open) {
+    hiddenLinks.classList.toggle("hidden", !open);
+    hiddenLinks.setAttribute("aria-hidden", String(!open));
+    navToggle.classList.toggle("close", open);
+    navToggle.setAttribute("aria-expanded", String(open));
+    navToggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+  }
 
-  // FitVids init
-  $("#main").fitVids();
+  function updateNavigation() {
+    if (!navigation) return;
+    const wasOpen = navToggle.getAttribute("aria-expanded") === "true";
+    const focusedElement = document.activeElement;
+    measuredNavWidth = navigation.clientWidth;
+    visibleLinks.append(...hiddenLinks.children);
+    setNavigationOpen(false);
+    navToggle.classList.add("hidden");
 
-  // init sticky sidebar
-  $(".sticky").Stickyfill();
-
-  var profileIsDesktop;
-  var stickySideBar = function(){
-    var $authorToggle = $(".author__urls-toggle");
-    var $authorLinks = $("#author-profile-links");
-    var show = $authorToggle.length === 0 ? $(window).width() > 1024 : !$authorToggle.is(":visible");
-    // A mobile toolbar resize must not reset the visitor's open menu.
-    if (show === profileIsDesktop) return;
-    profileIsDesktop = show;
-    if (show) {
-      // fix
-      Stickyfill.rebuild();
-      Stickyfill.init();
-      $authorLinks.stop(true, true).show().attr("aria-hidden", "false");
-    } else {
-      // unfix
-      Stickyfill.stop();
-      $authorLinks.stop(true, true).hide().attr("aria-hidden", "true");
-      $authorToggle.removeClass("open").attr("aria-expanded", "false");
+    if (visibleLinks.offsetWidth > measuredNavWidth) {
+      navToggle.classList.remove("hidden");
+      const availableSpace = measuredNavWidth - navToggle.offsetWidth - 30;
+      while (visibleLinks.offsetWidth > availableSpace && visibleLinks.children.length > 1) {
+        hiddenLinks.prepend(visibleLinks.lastElementChild);
+      }
     }
-  };
+    const hiddenCount = hiddenLinks.children.length;
+    navToggle.setAttribute("count", hiddenCount);
+    navToggle.classList.toggle("hidden", hiddenCount === 0);
+    setNavigationOpen(wasOpen && hiddenCount > 0);
 
-  stickySideBar();
-
-  $(window).resize(function(){
-    stickySideBar();
-  });
-
-  // Follow menu drop down
-
-  $(".author__urls-toggle").on("click", function() {
-    var $button = $(this);
-    var $links = $("#" + $button.attr("aria-controls"));
-    var willOpen = $button.attr("aria-expanded") !== "true";
-    $links.stop(true, true).fadeToggle("fast").attr("aria-hidden", String(!willOpen));
-    $button.toggleClass("open", willOpen).attr("aria-expanded", String(willOpen));
-  });
-
-  // Name pronunciation
-
-  $(".author__pronunciation").on("click", function() {
-    var audio = document.getElementById($(this).attr("aria-controls"));
-    var $status = $("#name-audio-status");
-    var showPlaybackError = function() {
-      $status.text("Pronunciation audio could not be played.");
-    };
-
-    $status.text("");
-    if (!audio) {
-      showPlaybackError();
-      return;
+    if (navigation.contains(focusedElement)) {
+      if (focusedElement.getClientRects().length) focusedElement.focus();
+      else if (hiddenCount) navToggle.focus();
     }
+  }
 
+  function scheduleNavigation() {
+    if (navFrame !== null) return;
+    navFrame = requestAnimationFrame(() => {
+      navFrame = null;
+      updateNavigation();
+    });
+  }
+
+  navToggle?.addEventListener("click", () => {
+    setNavigationOpen(navToggle.getAttribute("aria-expanded") !== "true");
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && navToggle?.getAttribute("aria-expanded") === "true") {
+      setNavigationOpen(false);
+      navToggle.focus();
+    }
+  });
+  if (navigation && window.ResizeObserver) {
+    new ResizeObserver(() => {
+      if (navigation.clientWidth !== measuredNavWidth) scheduleNavigation();
+    }).observe(navigation);
+  }
+  document.fonts.ready.then(scheduleNavigation);
+  updateNavigation();
+
+  const profileToggle = document.querySelector(".author__urls-toggle");
+  const profileLinks = document.getElementById("author-profile-links");
+  let profileIsDesktop;
+
+  function updateProfiles() {
+    if (!profileToggle) return;
+    const desktop = getComputedStyle(profileToggle).display === "none";
+    if (desktop === profileIsDesktop) return;
+    profileIsDesktop = desktop;
+    profileToggle.setAttribute("aria-expanded", "false");
+    profileToggle.classList.remove("open");
+    profileLinks.classList.remove("is-open");
+    profileLinks.setAttribute("aria-hidden", String(!desktop));
+  }
+
+  profileToggle?.addEventListener("click", () => {
+    const open = profileToggle.getAttribute("aria-expanded") !== "true";
+    profileToggle.setAttribute("aria-expanded", String(open));
+    profileToggle.classList.toggle("open", open);
+    profileLinks.classList.toggle("is-open", open);
+    profileLinks.setAttribute("aria-hidden", String(!open));
+  });
+  window.addEventListener("resize", () => {
+    if (navigation?.clientWidth !== measuredNavWidth) scheduleNavigation();
+    updateProfiles();
+  });
+  updateProfiles();
+
+  document.querySelector(".author__pronunciation")?.addEventListener("click", async (event) => {
+    const audio = document.getElementById(event.currentTarget.getAttribute("aria-controls"));
+    const status = document.getElementById("name-audio-status");
+    status.textContent = "";
     try {
-      var playback = audio.play();
-      if (playback && typeof playback.catch === "function") {
-        playback.catch(showPlaybackError);
-      }
-    } catch (error) {
-      showPlaybackError();
+      await audio.play();
+    } catch {
+      status.textContent = "Pronunciation audio could not be played.";
     }
   });
 
-  // init smooth scroll
-  // Native anchor focus is essential for the skip link.
-  $("a").not(".skip-link").smoothScroll({offset: -20});
+  const imageLinks = [...document.querySelectorAll(".image-popup, a[href$='.jpg' i], a[href$='.jpeg' i], a[href$='.png' i], a[href$='.gif' i]")]
+    .filter((link) => !link.closest(".page__comments, .js-comment"));
+  if (!imageLinks.length) return;
+  imageLinks.forEach((link) => link.classList.add("image-popup"));
 
-  // Keep comment links out of both automatic and explicit lightbox binding.
-  var $imageLinks = $(".image-popup,a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif']")
-    .not(".page__comments a, .js-comment a");
-  $imageLinks.addClass("image-popup");
-
-  // Magnific-Popup options
-  $imageLinks.magnificPopup({
-    // disableOn: function() {
-    //   if( $(window).width() < 500 ) {
-    //     return false;
-    //   }
-    //   return true;
-    // },
-    type: 'image',
-    tLoading: 'Loading image #%curr%...',
-    gallery: {
-      enabled: true,
-      navigateByImgClick: true,
-      preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-    },
-    image: {
-      tError: 'Image #%curr% could not be loaded.',
-    },
-    removalDelay: 500, // Delay in milliseconds before popup is removed
-    // Class that is added to body when popup is open.
-    // make it unique to apply your CSS animations just to this exact popup
-    mainClass: 'mfp-zoom-in',
-    callbacks: {
-      beforeOpen: function() {
-        // just a hack that adds mfp-anim class to markup
-        this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-      }
-    },
-    closeOnContentClick: true,
-    midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
-  });
-
-});
+  // Keep the first click working even while the optional viewer is downloading.
+  const loaded = import(new URL("image-viewer.min.js", scriptUrl || document.baseURI).href)
+    .then(() => true, () => false);
+  async function waitForViewer(event) {
+    const link = event.target.closest("a.image-popup");
+    const modifiedClick = event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey;
+    if (!imageLinks.includes(link) || modifiedClick) return;
+    event.preventDefault();
+    if (await loaded) link.click();
+    else window.location.assign(link.href);
+  }
+  document.addEventListener("click", waitForViewer, true);
+  loaded.then(() => document.removeEventListener("click", waitForViewer, true));
+})();

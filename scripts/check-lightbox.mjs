@@ -3,10 +3,8 @@
 // Run with CHROME_BIN=/path/to/chrome node scripts/check-lightbox.mjs [site-root].
 // Uses only Node.js and a local Chromium browser; no external requests are needed.
 import assert from "node:assert/strict";
-import { spawn } from "node:child_process";
-import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import { createServer } from "node:http";
-import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
@@ -14,17 +12,19 @@ import { chromium } from "playwright";
 const root = path.resolve(process.argv[2] ?? fileURLToPath(new URL("../", import.meta.url)));
 const sourceFiles = [
   "assets/js/vendor/jquery/jquery-4.0.0.min.js",
-  "assets/js/plugins/jquery.fitvids.js",
-  "assets/js/plugins/jquery.greedy-navigation.js",
   "assets/js/plugins/jquery.magnific-popup.js",
-  "assets/js/plugins/jquery.smooth-scroll.min.js",
-  "assets/js/plugins/stickyfill.min.js",
-  "assets/js/_main.js"
+  "assets/js/_image-viewer.js"
 ];
 const sources = await Promise.all(sourceFiles.map((file) => readFile(path.join(root, file), "utf8")));
 const variants = {
-  source: sources.join("\n"),
-  bundle: await readFile(path.join(root, "assets/js/main.min.js"), "utf8")
+  source: {
+    main: await readFile(path.join(root, "assets/js/_main.js"), "utf8"),
+    viewer: sources.join("\n")
+  },
+  bundle: {
+    main: await readFile(path.join(root, "assets/js/main.min.js"), "utf8"),
+    viewer: await readFile(path.join(root, "assets/js/image-viewer.min.js"), "utf8")
+  }
 };
 // Optionally exercise an isolated Jekyll build with Staticman and published comments.
 const staticmanComments = process.env.STATICMAN_FIXTURE
@@ -152,13 +152,14 @@ async function checkLightbox() {
 const escapeAttribute = (value) => value.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const server = createServer((request, response) => {
   const url = new URL(request.url, "http://localhost");
-  if (url.pathname === "/script.js") {
+  const [, variant, asset] = url.pathname.split("/");
+  if (variants[variant] && ["main.js", "image-viewer.min.js"].includes(asset)) {
     response.setHeader("Content-Type", "text/javascript");
-    response.end(variants[url.searchParams.get("variant")]);
+    response.end(variants[variant][asset === "main.js" ? "main" : "viewer"]);
   } else if (url.pathname === "/good.png") {
     response.setHeader("Content-Type", "image/png");
     response.end(pixel);
-  } else if (url.pathname === "/") {
+  } else if (variants[variant] && !asset) {
     const origin = `http://127.0.0.1:${server.address().port}`;
     const malicious = escapeAttribute(`${origin}/missing"><img src="/marker" onerror="window.__injected++">.jpg`);
     response.setHeader("Content-Type", "text/html");
@@ -176,8 +177,7 @@ const server = createServer((request, response) => {
       <aside><a id="explicit" class="image-popup" href="/good.png?manual=1">Explicit authored image</a></aside>
       <article class="js-comment"><a href="${malicious}">Standalone comment</a></article>
       <pre id="result">pending</pre>
-      <script src="/script.js?variant=${url.searchParams.get("variant")}"></script>
-      <script>$(document).ready(${checkLightbox.toString()});</script>
+      <script src="/${variant}/main.js"></script>
     </body></html>`);
   } else {
     response.writeHead(404);
@@ -186,36 +186,56 @@ const server = createServer((request, response) => {
 });
 
 await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+let browser;
 try {
+  browser = await chromium.launch({
+    headless: true,
+    ...(process.env.CHROME_BIN ? { executablePath: process.env.CHROME_BIN } : {})
+  });
   for (const variant of Object.keys(variants)) {
-    const profile = await mkdtemp(path.join(tmpdir(), "lightbox-browser-"));
+    const context = await browser.newContext();
     try {
-      const browser = spawn(process.env.CHROME_BIN ?? chromium.executablePath(), [
-        "--headless", "--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage",
-        "--disable-background-networking", "--no-proxy-server", "--dump-dom",
-        "--virtual-time-budget=15000", `--user-data-dir=${profile}`,
-        `http://127.0.0.1:${server.address().port}/?variant=${variant}`
-      ]);
-      let output = "";
-      let errors = "";
-      browser.stdout.setEncoding("utf8").on("data", (chunk) => { output += chunk; });
-      browser.stderr.setEncoding("utf8").on("data", (chunk) => { errors += chunk; });
-      const status = await new Promise((resolve, reject) => {
-        const timeout = setTimeout(() => { browser.kill("SIGKILL"); reject(new Error("Browser timed out")); }, 30000);
-        browser.on("error", (error) => { clearTimeout(timeout); reject(error); });
-        browser.on("close", (code) => { clearTimeout(timeout); resolve(code); });
-      });
-      assert.equal(status, 0, errors);
-      const result = output.match(/<pre id="result">([^<]+)<\/pre>/)?.[1];
-      assert(result && result !== "pending", `Browser did not finish checks: ${output.slice(-1800)}\n${errors}`);
-      const { passed, failures } = JSON.parse(result.replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&amp;/g, "&"));
+      const page = await context.newPage();
+      await page.goto(`http://127.0.0.1:${server.address().port}/${variant}/`);
+      await page.waitForFunction(() => Boolean(window.jQuery?.magnificPopup));
+      await page.evaluate(checkLightbox);
+      const { passed, failures } = JSON.parse(await page.locator("#result").textContent());
       assert.deepEqual(failures, [], `${variant}: ${failures.join("\n")}`);
       console.log(`${variant}: ${passed} lightbox security and compatibility checks passed.`);
+
+      for (const shouldFail of [false, true]) {
+        const delayedContext = await browser.newContext();
+        try {
+          let releaseDownload;
+          const download = new Promise((resolve) => { releaseDownload = resolve; });
+          await delayedContext.route("**/image-viewer.min.js", async (route) => {
+            await download;
+            if (shouldFail) await route.abort();
+            else await route.continue();
+          });
+          const delayedPage = await delayedContext.newPage();
+          const fixtureUrl = `http://127.0.0.1:${server.address().port}/${variant}/`;
+          await delayedPage.goto(fixtureUrl, { waitUntil: "domcontentloaded" });
+          await delayedPage.locator("#good").click();
+          assert.equal(delayedPage.url(), fixtureUrl, "Click navigated before viewer download finished");
+          releaseDownload();
+          if (shouldFail) {
+            await delayedPage.waitForURL(`http://127.0.0.1:${server.address().port}/good.png`);
+          } else {
+            await delayedPage.getByRole("dialog", { name: "Image viewer" }).waitFor({ state: "visible" });
+            await delayedPage.keyboard.press("Escape");
+          }
+        } finally {
+          await delayedContext.close();
+        }
+      }
+      console.log(`${variant}: delayed viewer and download-failure fallback passed.`);
     } finally {
-      await rm(profile, { recursive: true, force: true });
+      await context.close();
     }
   }
 } finally {
+  if (browser) await browser.close();
   server.closeAllConnections();
   await new Promise((resolve) => server.close(resolve));
 }

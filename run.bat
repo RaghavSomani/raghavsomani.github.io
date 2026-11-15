@@ -2,13 +2,13 @@
 setlocal
 set "JEKYLL_ENV=production"
 
-bundle exec jekyll build --trace
+call npm run build
 if errorlevel 1 (
   echo Site build failed. Nothing was staged or pushed.
   exit /b 1
 )
 
-npm run check:links
+call npm run check:links
 if errorlevel 1 (
   echo Internal link check failed. Nothing was staged or pushed.
   exit /b 1

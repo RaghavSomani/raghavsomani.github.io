@@ -20,33 +20,6 @@ teaser                   :  # filename of teaser fallback teaser image placed in
 breadcrumbs              : false # true, false (default) (Raghav - true has some bug)
 words_per_minute         : 160
 read_more                : "enabled" # if enabled, adds "Read more" links to excerpts
-comments:
-  provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
-  disqus:
-    shortname            : "raghavsomani"
-    site_url             : "https://raghavsomani.github.io" # Keep production comment threads in local previews.
-  discourse:
-    server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
-  facebook:
-    appid                :
-    num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
-staticman:
-  allowedFields          : ['name', 'email', 'url', 'message']
-  branch                 : "gh-pages" # "master", "gh-pages"
-  commitMessage          : "New comment."
-  filename               : comment-{@timestamp}
-  format                 : "yml"
-  moderation             : true
-  path                   : "_data/comments/{options.slug}"
-  requiredFields         : ['name', 'email', 'message']
-  transforms:
-    email                : "md5"
-  generatedFields:
-    date:
-      type               : "date"
-      options:
-        format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 atom_feed:
   path                   : # blank (default) uses feed.xml
 mathjax                  : true
@@ -139,6 +112,7 @@ exclude:
   - .sass-cache
   - assets/js/plugins
   - assets/js/_main.js
+  - assets/js/_image-viewer.js
   - assets/js/vendor
   - Capfile
   - CHANGELOG
@@ -230,7 +204,6 @@ defaults:
       layout: single
       author_profile: true
       read_time: false
-      comments: true
       share: true
       related: true
   # _pages
@@ -248,7 +221,6 @@ defaults:
       layout: single
       author_profile: true
       share: true
-      comments: true
   # _projects
   - scope:
       path: ""
@@ -257,7 +229,6 @@ defaults:
       layout: projects
       author_profile: true
       share: true
-      comments: true
   # _publications
   - scope:
       path: ""
@@ -266,7 +237,6 @@ defaults:
       layout: single
       author_profile: true
       share: true
-      comments: true
   # _portfolio
   - scope:
       path: ""
@@ -275,7 +245,6 @@ defaults:
       layout: single
       author_profile: true
       share: true
-      comment: true
   # _talks
   - scope:
       path: ""
@@ -291,7 +260,6 @@ defaults:
     values:
       layout: single
       author_profile: true
-      comment: true
 
 # Sass/SCSS
 sass:

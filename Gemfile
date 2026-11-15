@@ -2,10 +2,10 @@ source "https://rubygems.org"
 
 # This line ensures you're using the github-pages gem, which includes
 # a specific version of Jekyll and other dependencies that match the GitHub Pages environment.
-gem "github-pages", "230", group: :jekyll_plugins
+gem "github-pages", "232", group: :jekyll_plugins
 
 # Ruby 3 no longer ships WEBrick, but Jekyll 3 uses it for `jekyll serve`.
-gem "webrick", "~> 1.8"
+gem "webrick", "~> 1.9.2"
 
 # The wdm gem is a Windows-specific gem to handle file change events efficiently.
 # It's only needed when developing on Windows.

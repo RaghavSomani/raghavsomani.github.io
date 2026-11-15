@@ -3,52 +3,13 @@
 // Audit the generated site and exercise keyboard flows without depending on
 // analytics, video providers, CDN availability, or third-party comment widgets.
 import assert from "node:assert/strict";
-import { createServer } from "node:http";
-import { readFile, stat } from "node:fs/promises";
-import path from "node:path";
 import { chromium } from "playwright";
 import axe from "axe-core";
+import { createPreviewServer } from "./preview-server.mjs";
 
-const root = path.resolve(process.argv[2] ?? "_site");
-const types = {
-  ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".css": "text/css",
-  ".jpg": "image/jpeg", ".png": "image/png", ".gif": "image/gif", ".webp": "image/webp",
-  ".svg": "image/svg+xml", ".woff2": "font/woff2", ".woff": "font/woff", ".ttf": "font/ttf",
-  ".json": "application/json", ".ico": "image/x-icon"
-};
-let origin;
-const server = createServer(async (request, response) => {
-  try {
-    const pathname = decodeURIComponent(new URL(request.url, origin).pathname);
-    const candidate = path.resolve(root, `.${pathname}`);
-    if (candidate !== root && !candidate.startsWith(`${root}${path.sep}`)) {
-      response.writeHead(403).end();
-      return;
-    }
-    let file;
-    for (const option of [candidate, `${candidate}.html`, path.join(candidate, "index.html")]) {
-      if (await stat(option).then((value) => value.isFile(), () => false)) {
-        file = option;
-        break;
-      }
-    }
-    if (!file) {
-      response.writeHead(404).end();
-      return;
-    }
-    const bytes = await readFile(file);
-    response.setHeader("Content-Type", types[path.extname(file)] ?? "application/octet-stream");
-    // Localize the production build's absolute links and asset URLs for this test server.
-    response.end(path.extname(file) === ".html"
-      ? bytes.toString().replaceAll("https://raghavsomani.github.io", origin)
-      : bytes);
-  } catch (error) {
-    response.writeHead(500).end(error.message);
-  }
-});
-
+const server = createPreviewServer(process.argv[2] ?? "_site");
 await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
-origin = `http://127.0.0.1:${server.address().port}`;
+const origin = `http://127.0.0.1:${server.address().port}`;
 let browser;
 const failures = [];
 let audits = 0;
@@ -92,10 +53,16 @@ try {
   const page = await context.newPage();
   const pageErrors = [];
   page.on("pageerror", (error) => pageErrors.push(`${page.url()}: ${error.message}`));
+  page.on("response", (response) => {
+    if (new URL(response.url()).origin === origin && response.status() >= 400) {
+      pageErrors.push(`${response.status()}: ${response.url()}`);
+    }
+  });
   const routes = [
     "/", "/projects/", "/publications/", "/year-archive/", "/cv/", "/misc/",
     "/misc/2018-12-Montreal-Neurips/", "/misc/2019-12-Melbourne-WSDM/",
     "/misc/2019-12-Vancouver-Neurips/", "/publications/2020-09-25-MetaLearning_RMLR-5",
+    "/projects/2020-12-08-project-4",
     "/posts/2020/02/blog-post-11/"
   ];
 
@@ -108,6 +75,17 @@ try {
       await audit(page, `${width}px ${route}`);
       const heading = page.locator("#main-content");
       assert.equal(await heading.count(), 1, `${route}: missing/duplicate skip target`);
+      assert.equal(await page.locator(".page__comments, #disqus_thread").count(), 0, `${route}: comments section remains`);
+      assert.equal(await page.locator('script[src*="disqus"]').count(), 0, `${route}: Disqus script remains`);
+      if (await page.locator("a.image-popup").count()) {
+        await page.waitForFunction(() => Boolean(window.jQuery?.magnificPopup));
+      } else {
+        assert.equal(await page.locator('script[src*="image-viewer.min.js"]').count(), 0, `${route}: unnecessary image viewer loaded`);
+        assert.equal(await page.evaluate(() => typeof window.jQuery), "undefined", `${route}: unnecessary jQuery loaded`);
+      }
+      const videos = await page.locator('.page__content iframe[src*="youtube.com/embed/"]').evaluateAll((frames) =>
+        frames.map((frame) => ({ width: frame.clientWidth, height: frame.clientHeight })));
+      assert(videos.every((video) => video.width <= width && Math.abs(video.width / video.height - 16 / 9) < 0.02), `${route}: video sizing failed`);
     }
   }
 
@@ -118,6 +96,22 @@ try {
   assert.equal(await page.evaluate(() => document.activeElement.textContent), "Skip to main content");
   await page.keyboard.press("Enter");
   assert.equal(await page.evaluate(() => document.activeElement.id), "main-content", "Skip link did not move focus");
+
+  await page.evaluate(() => {
+    window.audioPlayCalls = 0;
+    document.getElementById("name_audio").play = () => {
+      window.audioPlayCalls++;
+      return Promise.resolve();
+    };
+  });
+  const pronunciation = page.getByRole("button", { name: "Play the pronunciation of Raghav Somani" });
+  await pronunciation.click();
+  assert.equal(await page.evaluate(() => window.audioPlayCalls), 1, "Pronunciation control did not play audio");
+  await page.evaluate(() => {
+    document.getElementById("name_audio").play = () => Promise.reject(new Error("Playback unavailable"));
+  });
+  await pronunciation.click();
+  assert.match(await page.locator("#name-audio-status").textContent(), /could not be played/, "Audio failure was not reported");
 
   const navToggle = page.getByRole("button", { name: "Open navigation menu" });
   const profiles = page.getByRole("button", { name: "Profiles", exact: true });
@@ -161,14 +155,39 @@ try {
   assert(await imageLink.evaluate((element) => document.activeElement === element), "Lightbox did not return focus to its link");
 
   await page.goto(`${origin}/posts/2020/02/blog-post-11/`);
-  const math = page.locator('script[src*="mathjax@4.1.3/"]');
-  assert.equal(await math.count(), 1, "Mathematical article omitted MathJax");
-  assert.match(await math.getAttribute("integrity"), /^sha384-[A-Za-z0-9+/]{64}$/);
-  assert.equal(await math.getAttribute("crossorigin"), "anonymous");
+  await settle(page);
+  assert.equal(await page.locator('script[src*="mathjax"]').count(), 0, "Article loads client-side MathJax");
+  assert.equal(await page.locator('script[type^="math/tex"]').count(), 0, "Article contains unrendered math");
+  const equations = await page.locator("mjx-container").count();
+  assert(equations > 200, "Pre-rendered article lost equations");
+  assert.equal(await page.locator("mjx-assistive-mml math").count(), equations, "Equations lack accessible MathML");
+  assert.equal(await page.locator('annotation[encoding="application/x-tex"]').count(), equations, "Equations lack original TeX");
+  assert.equal(await page.locator("mjx-merror, merror").count(), 0, "Article contains math errors");
+  const displayMath = page.locator('mjx-container[display="true"]');
+  const wideIndex = await displayMath.evaluateAll((equations) => equations.findIndex((equation) =>
+    equation.scrollWidth > equation.clientWidth + 1));
+  assert(wideIndex >= 0, "Wide-equation keyboard check has no scrollable equation");
+  await displayMath.nth(wideIndex).focus();
+  await page.keyboard.press("ArrowRight");
+  await page.waitForFunction((index) => document.querySelectorAll('mjx-container[display="true"]')[index].scrollLeft > 0, wideIndex);
+  const fontResources = await page.evaluate(() => performance.getEntriesByType("resource")
+    .filter((resource) => resource.name.includes("/assets/fonts/")).map((resource) => resource.name));
+  assert(fontResources.some((url) => url.endsWith("fontawesome-subset.woff2")), "Icon font subset was not loaded");
+  assert(fontResources.every((url) => url.includes("-subset.woff2") || url.includes("/fonts/mathjax/")), "Full icon font loaded");
+
+  const noScriptContext = await browser.newContext({ javaScriptEnabled: false });
+  await noScriptContext.route("**/*", async (route) => {
+    if (new URL(route.request().url()).origin === origin) await route.continue();
+    else await route.abort();
+  });
+  const noScriptPage = await noScriptContext.newPage();
+  await noScriptPage.goto(`${origin}/posts/2020/02/blog-post-11/`);
+  assert.equal(await noScriptPage.locator("mjx-container").count(), equations, "Math requires browser JavaScript");
+  await noScriptContext.close();
   if (pageErrors.length) failures.push(`Browser JavaScript errors:\n${pageErrors.join("\n")}`);
 
   assert.equal(failures.length, 0, failures.join("\n\n"));
-  console.log(`${audits} accessibility audits passed; skip link, menus, native lightbox and math loading passed.`);
+  console.log(`${audits} accessibility audits passed; skip link, menus, native lightbox, icon subsets and pre-rendered math passed.`);
   console.log(`Mobile Melbourne photographs: ${(photoBytes / 1000).toFixed(1)} KB (originals: 5359.0 KB).`);
 } finally {
   if (browser) await browser.close();

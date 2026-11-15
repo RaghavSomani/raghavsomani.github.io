@@ -1,4 +1,4 @@
-name: Site checks
+name: Site checks and deployment
 
 on:
   push:
@@ -11,11 +11,10 @@ permissions:
 
 concurrency:
   group: site-checks-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
-    # Ruby 3.1 has no prebuilt binary for Ubuntu 26.04.
     runs-on: ubuntu-24.04
     env:
       JEKYLL_ENV: production
@@ -32,17 +31,23 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci --ignore-scripts
 
+      - name: Generate icon assets
+        run: npm run build:icons
+
+      - name: Build browser JavaScript
+        run: npm run build:js
+
       - name: Install Chromium for browser checks
         run: npx playwright install --with-deps chromium
 
       - name: Set up Ruby and Bundler
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.1"
+          ruby-version: "3.3"
           bundler-cache: true
 
       - name: Build the site
-        run: bundle exec jekyll build --trace
+        run: npm run build
 
       - name: Verify required output
         shell: bash
@@ -68,3 +73,27 @@ jobs:
         run: |
           test "$(wc -c < images/profile-350.jpg)" -le 60000
           test "$(wc -c < images/profile-700.jpg)" -le 150000
+
+      - name: Upload GitHub Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

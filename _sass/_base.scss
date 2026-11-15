@@ -198,8 +198,7 @@ figure {
   margin: 2em 0;
 
   img,
-  iframe,
-  .fluid-width-video-wrapper {
+  iframe {
     margin-bottom: 1em;
   }
 
@@ -241,6 +240,27 @@ figure {
     figcaption {
       width: 100%;
     }
+  }
+}
+
+/* Responsive embeds and anchor navigation */
+
+.page__content iframe[src*="youtube.com/embed/"],
+.page__content iframe[src*="youtube-nocookie.com/embed/"],
+.page__content iframe[src*="player.vimeo.com/"] {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+.page__content [id],
+#main-content {
+  scroll-margin-block-start: 20px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
